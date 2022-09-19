@@ -1,0 +1,23 @@
+{
+  "id": "3513885",
+  "name": "z",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "30175727",
+      "name": "Chevron-Right",
+      "font_class": "Chevron-Right",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "30175743",
+      "name": "Chevron-Left",
+      "font_class": "Chevron-Left",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    }
+  ]
+}

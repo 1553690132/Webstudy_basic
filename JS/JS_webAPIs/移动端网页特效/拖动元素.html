@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            background: pink;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        let div = document.querySelector('div');
+        div.addEventListener('touchstart', (e) => {
+            let oldX = div.offsetLeft;
+            let oldY = div.offsetTop;
+            let x = e.targetTouches[0].pageX;
+            let y = e.targetTouches[0].pageY;
+            div.addEventListener('touchmove', (ev) => {
+                let nx = ev.targetTouches[0].pageX - x + oldX;
+                let ny = ev.targetTouches[0].pageY - y + oldY;
+                div.style.left = nx + 'px';
+                div.style.top = ny + 'px';
+                ev.preventDefault();
+                // 阻止屏幕滚动
+            });
+
+            div.addEventListener('touchend', (ez) => {
+                oldX = ez.targetTouches[0].pageX;
+                oldY = ez.targetTouches[0].pageY;
+            })
+        });
+    </script>
+</body>
+
+</html>

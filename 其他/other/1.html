@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lb</title>
+    <link rel="stylesheet" href="font_z1/iconfont.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #container {
+            width: 750px;
+            height: 291px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 滑动轮播 */
+        #img-box {
+            width: 3750px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: left 1s linear;
+        }
+
+        #img-box img {
+            float: left;
+        }
+
+        #img-box .active {
+            display: block;
+        }
+
+        /* 淡入淡出
+        #img-box img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: opacity 2s;
+        }
+
+        #img-box .active {
+            opacity: 1;
+        } */
+
+        
+        #btn-box {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #btn-box li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            border-radius: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        #btn-box .active {
+            background-color: red;
+        }
+
+        #prev,
+        #next {
+            width: 40px;
+            height: 50px;
+            background-color: #000000;
+            opacity: 0.3;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            line-height: 50px;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #prev .iconfont {
+            font-size: 20px;
+        }
+
+        #prev {
+            left: 0;
+        }
+
+        #next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="img-box">
+            <img class="active" src="images/img01.jpg" alt="">
+            <img src="images/img02.jpg" alt="">
+            <img src="images/img03.jpg" alt="">
+            <img src="images/img04.jpg" alt="">
+            <img src="images/img05.jpg" alt="">
+        </div>
+        <ul id="btn-box">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div id="prev">
+            <span class="iconfont icon-Chevron-Left"></span>
+        </div>
+        <div id="next">
+            <span class="iconfont icon-Chevron-Right"></span>
+        </div>
+    </div>
+
+    <script>
+        var container = document.getElementById('container');
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+
+        var btnBox = document.getElementById('btn-box');
+        var btns = btnBox.getElementsByTagName('li');
+
+        var imgBox = document.getElementById('img-box');
+        var imgs = imgBox.getElementsByTagName('img');
+
+        var index = 0;
+
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].index = i;
+            btns[i].onclick = function () {
+                change(this.index);
+                index = this.index;
+            }
+        }
+
+        container.onmouseenter = function () {
+            clearInterval(timer);
+
+            prev.style.display = 'block';
+            next.style.display = 'block';
+        }
+
+        container.onmouseleave = function () {
+            prev.style.display = 'none';
+            next.style.display = 'none';
+
+            timer.setInterval(function () {
+                next.onclick();
+            }, 1500)
+        }
+
+        next.onclick = function () {
+            index++;
+            if (index >= btns.length) {
+                index = 0;
+            }
+            change(index);
+        }
+
+        function change(idx) {
+            for (var j = 0; j < btns.length; j++) {
+                btns[j].className = '';
+                imgs[j].className = '';
+            }
+
+            btns[idx].className = 'active';
+            imgs[idx].className = 'active';
+
+            imgBox.style.left = -idx * 750 + "px";
+        }
+
+        prev.onclick = function () {
+            index--;
+            if (index === -1) {
+                index = btns.length - 1;
+            }
+            change(index);
+        }
+
+        var timer = setInterval(function () {
+            next.onclick();
+        }, 1500)
+
+    </script>
+</body>
+
+</html>

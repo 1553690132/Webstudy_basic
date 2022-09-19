@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        div {
+            display: flex;
+            width: 240px;
+            height: 300px;
+            margin: 150px auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hour, .minute, .second {
+            flex: 1;
+            height: 60px;
+            font-size: 30px;
+            color: #fff;
+            line-height: 60px;
+            text-align: center;
+            background-color: #000;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span class="hour">00</span>
+        <span class="minute">00</span>
+        <span class="second">00</span>
+    </div>
+    <script>
+        let hour = document.querySelector('.hour');
+        let minute = document.querySelector('.minute');
+        let second = document.querySelector('.second');
+        count();
+        function count() {
+            let times = new Date();
+            hour.innerHTML = times.getHours();
+            minute.innerHTML = times.getMinutes() < 10 ? '0' + times.getMinutes() : times.getMinutes();
+            second.innerHTML = times.getSeconds() < 10 ? '0' + times.getSeconds() : times.getSeconds();
+        }
+        setInterval(count, 0);
+    </script>
+</body>
+</html>

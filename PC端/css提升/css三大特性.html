@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .t1 {
+            color: blue;
+        }
+
+        .t1 {
+            color: aqua;
+        }
+
+        /* css层叠性 ：样式设置冲突时，就近原则，采取离结构近的属性 */
+
+        .d1 {
+            color: red;
+            width: 300px;
+            height: 300px;
+        }
+
+        /* css继承性: 子类标签会继承父类标签的某些特性 */
+
+        .d2 {
+            font: 14px / 1.5;
+        }
+        /* 子元素继承父元素行高为当前指定字号大小的1.5倍 */
+    </style>
+</head>
+
+<body>
+    <div class="t1">层叠性</div>
+    <div class="d1">
+        <p>继承性</p>
+    </div>
+    <div class="d2">
+        <p>行高的继承性</p>
+    </div>
+</body>
+
+</html>

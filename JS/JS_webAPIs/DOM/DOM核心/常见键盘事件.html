@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        document.addEventListener('keyup', function() {
+            console.log('弹起');
+        })
+
+        document.addEventListener('keydown', function() {
+            console.log('按下');
+        })
+
+        document.addEventListener('keypress', function() {
+            console.log('按下press');
+        })
+        // 不会触发功能键
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            display: block;
+            margin: 0 auto;
+            font-size: 20px;
+            width: 300px;
+            height: 200px;
+            resize: none;
+            outline: none;
+        }
+
+        button {
+            display: block;
+            margin: 50px auto;
+            width: 80px;
+            height: 30px;
+        }
+
+        ul li {
+            font-size: 20px;
+            width: 300px;
+            background-color: #ccc;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea></textarea>
+    <button class="submit">发 布</button>
+    <button class="delete">删 除</button>
+    <ul> 
+
+    </ul>
+    <script>
+        var contents = document.querySelector('textarea');
+        var btn = document.querySelector('.submit');
+        var btn2 = document.querySelector('.delete');
+        var ul = document.querySelector('ul');
+        btn.onclick = function () {
+            if (contents.value === '') {
+                alert('未输入!');
+            } else {
+                var li = document.createElement('li');
+                li.innerHTML = contents.value;
+                ul.appendChild(li);
+                contents.value = '';
+            }
+        }
+
+        btn2.onclick = function() {
+            if(ul.children.length === 0) {
+                alert('删完了');
+            } else {
+                ul.removeChild(ul.children[0]);
+            }
+        }
+    </script>
+</body>
+
+</html>

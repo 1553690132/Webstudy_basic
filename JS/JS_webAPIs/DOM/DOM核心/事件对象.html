@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: #aaa;
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div>123</div>
+    <script>
+        var div = document.querySelector('div');
+        div.addEventListener('click', function(event) {
+            event = event || window.event; //兼容性
+            console.log(event);
+        })
+    </script>
+</body>
+</html>

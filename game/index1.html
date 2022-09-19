@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game1</title>
+    <style>
+        table {
+            margin: 100px auto;
+        }
+
+        #down {
+            display: block;
+            margin: 0 auto;
+        }
+
+        td {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #666;
+        }
+
+        .reds {
+            background-color: red;
+        }
+
+        .blacks {
+            background-color: grey;
+        }
+    </style>
+    <script src="/JS/jQuery/jquery.min.js"></script>
+</head>
+
+<body>
+    <table></table>
+    <button id="down">Down</button>
+    <script>
+        $(() => {
+            class Type1 {
+                constructor(origin) {
+                    // origin原点确定四周坐标
+                    let top = origin.top;
+                    let left = origin.left;
+                    this.position = [
+                        { top: top - 1, left: left - 1 },
+                        { top: top - 1, left: left },
+                        { top: top, left: left },
+                        { top: top + 1, left: left },
+                    ]
+                }
+
+                getOrigin() {
+                    return this.position[2];
+                }
+            }
+
+            let data = [
+                [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+                [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+                [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+                [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+                [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+                [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+                [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+                [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+                [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+                [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+            ]
+
+            function render() {
+                $('table').empty();
+                data.forEach(e => {
+                    const tr = $('<tr></tr>');
+                    e.forEach(e => {
+                        const td = $('<td></td>');
+                        if (e.status === 1) {
+                            $(td)[0].className = 'reds';
+                        } else if (e.status === 2) {
+                            $(td)[0].classList = 'blacks';
+                        }
+                        tr.append(td);
+                    })
+                    $('table').append(tr);
+                })
+            }
+
+            let _icon = null;
+            let icon_ = null;
+
+            function init() {
+                _icon = new Type1({ top: 1, left: 5 });
+                showIcon(_icon);
+                render();
+            } init();
+
+            function showIcon(icon) {
+                icon.position.forEach(e => {
+                    let top = e.top;
+                    let left = e.left;
+                    data[top][left].status = 1;
+                })
+            }
+
+
+            function clearIcon(icon) {
+                icon.position.forEach(e => {
+                    let top = e.top;
+                    let left = e.left;
+                    data[top][left].status = 0;
+                })
+            }
+
+            function nextPart() {
+                _icon.position.forEach(e => {
+                    let top = e.top;
+                    let left = e.left;
+                    data[top][left].status = 2;
+                })
+                init();
+            }
+
+            function down() {
+                let origin = _icon.getOrigin();
+                let newOrigin = {
+                    top: origin.top + 1,
+                    left: origin.left
+                }
+                icon_ = new Type1(newOrigin);
+                if (limit(icon_)) {
+                    nextPart();
+                    render();
+                } else {
+                    clearIcon(_icon);
+                    _icon = icon_;
+                    showIcon(_icon);
+                    render();
+                }
+            }
+
+            function limit(icon) {
+                let flag = false;
+                // 边界符
+                icon.position.forEach(e => {
+                    let top = e.top;
+                    let left = e.left;
+                    if (top > data.length - 1 || left < 0 || left > data[0].length - 1) {
+                        flag = true;
+                    }
+                    // 达到边界
+                    else if (data[top][left].status === 2) {
+                        flag = true;
+                    }
+                    // 重叠
+                })
+                return flag;
+            }
+
+
+            $('#down').on('click', () => down());
+            $(window).on('keydown', e => {
+                if (e.key === 'ArrowDown') {
+                    down();
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(Array.prototype);
+        Array.prototype.sum = function () {
+            let sum = 0;
+            for (let i = 0; i < this.length; i++) {
+                sum += this[i];
+            }
+            return sum;
+        }
+
+        Array.prototype.max = function () {
+            // return Math.max.apply(Math, this);
+            return Math.max(...this);
+        }
+
+        let a = [1, 2, 3];
+        console.log(a.sum());
+        console.log(a.max());
+        console.log(Array.prototype);
+        console.log(a.__proto__);
+    </script>
+</body>
+
+</html>

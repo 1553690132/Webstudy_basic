@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+
+        }
+
+        table,
+        th,
+        td {
+            text-align: center;
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+                <th>d</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var ths = document.querySelector('thead').querySelector('tr');
+        var tbs = document.querySelector('tbody').querySelectorAll('tr');
+        ths.onmouseover = function () {
+            this.style.backgroundColor = 'lightblue';
+        }
+        ths.onmouseleave = function () {
+            this.style.backgroundColor = '#fff';
+        }
+
+        for (let i = 0; i < tbs.length; i++) {
+            tbs[i].onmouseover = function () {
+                this.style.backgroundColor = 'lightblue'
+            }
+            tbs[i].onmouseleave = function () {
+                this.style.backgroundColor = '#fff'
+            }
+        }
+    </script>
+</body>
+
+</html>

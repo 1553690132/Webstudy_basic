@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/JS/jQuery/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <span>123</span>
+    </div>
+    <script>
+        $(()=> {
+            const li = $('<li>2132</li>');
+            $('body').append(li);
+            $('div').after(li);
+            $('div').before(li);
+            $('div').prepend(li);
+        })
+    </script>
+</body>
+</html>

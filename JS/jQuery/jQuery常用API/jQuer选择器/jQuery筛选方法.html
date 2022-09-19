@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="grand">
+        <div class="father">
+            <div class="son">son</div>
+        </div>
+    </div>
+    <div class="nav">
+        <p>ppp</p>
+        <div>
+            <p>123</p>
+        </div>
+    </div>
+    <ul>
+        <li>1</li>
+        <li class="item">2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        $(() => {
+            console.log($('.son').parent());
+            console.log($('.nav').children('p'));
+            $('ul .item').siblings('li').css('color', 'red');
+            $('ul li:eq(2)').css('color', 'blue');
+            $('ul li').eq(1).css('color', 'green');
+            console.log($('ul li:eq(2)').hasClass('item'));
+        });
+    </script>
+</body>
+
+</html>

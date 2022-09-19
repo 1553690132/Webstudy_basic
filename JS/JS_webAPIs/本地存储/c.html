@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 100px auto;
+            text-align: center;
+            line-height: 100px;
+            color: red;
+            font-size: 30px;
+        }
+
+        ul {
+            position: relative;
+            list-style: none;
+            margin: 0px auto;
+            width: 100px;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            background-color: skyblue;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .charge {
+            display: block;
+            margin: 30px auto;
+        }
+
+        ul button {
+            position: absolute;
+            right: 0;
+            background-color: skyblue;
+            border: 1px solid #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div>lwh</div>
+    <button class="charge">点名</button>
+    <ul>
+
+    </ul>
+    <script>
+        let arr = ['Tom', 'Mike', 'Bob', 'Lisa', 'Alpua', 'Boss', 'Susan'];
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        let div = document.querySelector('div');
+        let btn = document.querySelector('.charge');
+        let ul = document.querySelector('ul');
+        let index = 0;
+        let timer = setInterval(() => {
+            if (arr.length === 0) {
+                div.innerHTML = '已完成点名';
+                clearInterval(timer);
+            } else {
+                index = getRandom(0, arr.length - 1);
+                div.innerHTML = arr[index];
+            }
+        }, 50);
+
+        btn.addEventListener('click', fn);
+
+        function fn() {
+            if (arr.length === 1) {
+                btn.removeEventListener('click', fn);
+            }
+            let li = document.createElement('li');
+            let del = document.createElement('button');
+            li.innerHTML = div.innerHTML;
+            del.innerHTML = 'X';
+            li.appendChild(del);
+            ul.appendChild(li);
+            del.addEventListener('click', ()=> {
+                ul.removeChild(li);
+            });
+            arr.splice(index, 1);
+        }
+
+    </script>
+</body>
+
+</html>

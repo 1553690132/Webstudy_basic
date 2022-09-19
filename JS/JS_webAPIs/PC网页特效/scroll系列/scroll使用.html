@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            padding: 5px;
+            border: 5px solid #ddd;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>立即执行函数：无需调用，直接执行。且独立创建了一个作用域。
+
+        (function() {})()； (function(){}())； 两种写法
+        像素比：即devicePixelRatio值。
+        pageshow事件：重新加载页面触发的事件。
+        pageshow和load区别：往返缓存的存在
+        立即执行函数：无需调用，直接执行。且独立创建了一个作用域。
+
+        (function() {})()； (function(){}())； 两种写法
+        像素比：即devicePixelRatio值。
+        pageshow事件：重新加载页面触发的事件。
+        pageshow和load区别：往返缓存的存在
+        立即执行函数：无需调用，直接执行。且独立创建了一个作用域。
+
+        (function() {})()； (function(){}())； 两种写法
+        像素比：即devicePixelRatio值。
+        pageshow事件：重新加载页面触发的事件。
+        pageshow和load区别：往返缓存的存在
+    </div>
+    <script>
+        let div = document.querySelector('div');
+        div.addEventListener('scroll', () => {
+            console.log(div.scrollTop);
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        section {
+            margin: 200px auto;
+            width: 800px;
+        }
+
+        .tab_list ul {
+            display: flex;
+            justify-content: center;
+            border: 1px solid #000;
+        }
+
+        .tab_list ul li {
+            flex: 1;
+            text-align: center;
+            background-color: rgb(226, 225, 225);
+            font-size: 20px;
+            line-height: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .tab_content {
+            padding: 20px;
+        }
+
+        .item {
+            display: none;
+        }
+
+        .reds {
+            background-color: rgb(144, 31, 31) !important;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="tab_list">
+            <ul>
+                <li>商品介绍</li>
+                <li>规格包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+            </ul>
+        </div>
+        <div class="tab_content">
+            <div class="item">变量：P11～19
+                数据类型：P20～40
+                运算符：P41～54
+                流程控制分支结构：P55～68
+                循环：P69～95
+                数组：P96～112
+                函数：P113～133
+                作用域：P134～139
+                JS预解析：P140～142
+                对象：P143～153
+                内置对象：P155～186
+                简单数据类型和复杂数据类型：P187～190
+                DOM：P194～265
+                事件高级：P247～265
+                BOM：P266～286
+                PC端网页特效：P287～329
+                移动端网页特效：P331～353
+                本地存储：P354～357
+                jQuery：P358～442
+                数据可视化：P443～473</div>
+            <div class="item">变量：P11～19
+                素材大全：https://gitee.com/xiaoqiang001/java-script.git
+                PPT 在我账号专栏里面网盘地址
+                1.JavaScript基础从变量的定义与使用、流程控制语句、数组、函数、构造函数、内置对象以及对象等
+                2.web API 讲解如何获取DOM元素，如何操作DOM 元素，BOM操作 移动端制作网页特效
+                3. 后面还会有js高级，ES6类面向对象语法，面向对象案例，原型和原型链等等。
+                4. 还有会jquery 综合 + echarts数据可视化</div>
+            <div class="item">变量：P11～19
+                JS结束！Pink老师yyds
+                JavaScript基础大总结(一)：https://blog.csdn.net/Augenstern_QXL/article/details/119249534
+                JavaScript基础之函数与作用域(二)：https://blog.csdn.net/Augenstern_QXL/article/details/119250991
+                JavaScript基础之对象与内置对象(三)：https://blog.csdn.net/Augenstern_QXL/article/details/119250137
+                JavaScript进阶之DOM技术(四)：https://blog.csdn.net/Augenstern_QXL/article/details/115416921
+                JavaScript进阶之BOM技术(五)：https://blog.csdn.net/Augenstern_QXL/article/details/115406408
+                JavaScript提高之面向对象(六)：https://blog.csdn.net/Augenstern_QXL/article/details/115219073
+                JavaScript提高之ES6(七)：https://blog.csdn.net/Augenstern_QXL/article/details/115344398</div>
+            <div class="item">变量：P11～19
+                var money = 100;
+                var price = 0;
+                while (num != 4) {
+                var num = prompt('请输入你要的操作:\n1.存钱\n2.取钱\n3.显示余额\n4.退出')
+                switch (num) {
+                case '1':
+                price = prompt('输入要存的钱数；');
+                money = money + parseFloat(price);
+                alert('您的余额；' + money);
+                continue;
+                case '2':
+                price = prompt('输入你要取出的钱: ');
+                money = money - parseFloat(price);
+                alert('您的余额' + money);
+                continue;
+                case '3':
+                alert('您的余额：' + money);
+                continue;
+                case '4':
+                alert('正在退出...')
+                break;
+                }</div>
+        </div>
+    </section>
+    <script>
+        let btns = document.querySelector('.tab_list').querySelectorAll('li');
+        let contents = document.querySelectorAll('.item');
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                clear();
+                btns[i].className = 'reds';
+                contents[i].style.display = 'block';
+            }
+        }
+
+        function clear() {
+            for (let j = 0; j < btns.length; j++) {
+                btns[j].className = '';
+                contents[j].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

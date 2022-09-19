@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+
+        Star.prototype = {
+            constructor: Star,
+            // 指回Star对象
+            sing: function () {
+                console.log('原型对象');
+            },
+            dance: function () {
+                console.log('constructor');
+            }
+        }
+        // 相当于对对象原型赋值，造成对象覆盖，constructor无法指回
+
+        let a = new Star('a', 1);
+        console.log(a.__proto__.constructor);
+        console.log(Star.prototype.constructor);
+        // 很多情况下需要使用constructor属性指回构造函数本身
+
+    </script>
+</body>
+
+</html>

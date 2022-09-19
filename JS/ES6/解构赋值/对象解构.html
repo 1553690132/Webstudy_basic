@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            uname: 'lwh',
+            age: 18,
+            say: function () {
+                console.log(123);
+            }
+        }
+
+
+        // const { uname, age, say } = obj;
+        // console.log(uname);
+        // console.log(age);
+        // console.log(say);
+
+        // 对象解构可以重新改名
+
+        const { uname: username, age: ages, say: says } = obj;
+        console.log(username);
+        console.log(ages);
+        console.log(says);
+
+        const arr = [{
+            uname: 'lwh'
+        }]
+        const [{ uname }] = arr;
+        console.log(uname);
+
+        const pig = [
+            {
+                goodsName: 'abc',
+                price: 1999
+            }
+        ]
+
+        const [{ goodsName: name, price: prices }] = pig;
+        console.log(name);
+        console.log(prices);
+
+        const pigs = {
+            names: 'abc',
+            goods: {
+                g1: 1,
+                g2: 2,
+                g3: 3
+            },
+            age: 6
+        }
+        const { names, goods: { g1, g2, g3 }, age } = pigs;
+
+
+        function render({ goods: good }) {
+            console.log(good);
+        }
+        render(pigs)
+    </script>
+</body>
+
+</html>

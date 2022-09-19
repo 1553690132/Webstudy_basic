@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 0;
+            height: 0;
+            border-top: 10px solid pink;
+            border-right: 10px solid yellow;
+            border-bottom: 10px solid #000;
+            border-left: 10px solid green;
+        }
+
+        .box2 {
+            width: 0;
+            height: 0;
+            border-right: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-left: 100px solid transparent;
+            border-top: 100px solid #000;
+            margin: 20px auto;
+        }
+
+        .jd {
+            position: relative;
+            width: 120px;
+            height: 249px;
+            background-color: #ccc;
+        }
+
+        .jd span {
+            position: absolute;
+            right: 35px;
+            top: -10px;
+            width: 0;
+            height: 0;
+            font-style: 0;
+            line-height: 0;
+            border-bottom: 5px solid #ccc;
+            border-top: 5px solid transparent;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="jd">
+        <span></span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 普通函数
+        function fn1() {
+            console.log('普通函数');
+        } 
+        fn1();
+
+        // 对象方法
+        let o = {
+            fn2:function() {
+                console.log('对象函数');
+            }
+        }
+        o.fn2();
+        
+        // 构造函数
+        function Fn3(){};
+        new Fn3();
+        
+        // 绑定事件函数
+        btn.onclick() = function() {};
+        
+        // 定时器函数
+        setInterval(function(){}, interval);
+            
+        // 立即执行函数 自动调用
+        (function(){})();
+    </script>
+</body>
+</html>

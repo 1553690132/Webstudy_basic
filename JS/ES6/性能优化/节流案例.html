@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: #ddd;
+            margin: 100px auto;
+            font-size: 100px;
+            text-align: center;
+            line-height: 300px;
+            color: #fff;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        const box = document.querySelector('.box');
+        let i = 1;
+        function mouseMove() {
+            box.innerHTML = ++i;
+            // 如果存在大量操作dom情况，可能引起卡顿！
+        }
+
+        // 节流函数
+        function throttle(fn, times) {
+            let startTime = 0;
+            return function () {
+                let time = Date.now();
+                // 获取当前时间
+                if (time - startTime >= times) {
+                    fn();
+                    // 起始时间 = 现在时间
+                    startTime = time;
+                }
+            }
+        }
+
+        box.addEventListener('mousemove', throttle(mouseMove, 500));
+
+        // let num = 1;
+        // function mouseMove() {
+        //     box.innerHTML = ++num;
+        // }
+
+        // function throttle(fn, time) {
+        //     let startTime = 0;
+        //     return function () {
+        //         let nowTime = Date.now();
+        //         if (nowTime - startTime >= time) {
+        //             fn();
+        //             startTime = nowTime;
+        //         }
+        //     }
+        // }
+
+        // box.addEventListener('mousemove', throttle(mouseMove, 500));
+
+    </script>
+</body>
+
+</html>

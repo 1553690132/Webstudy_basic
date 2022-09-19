@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 单行文本溢出省略 */
+        .box1 {
+            width: 150px;
+            height: 80px;
+            border: 1px solid red;
+            margin: 100px auto;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /*  多行文本溢出省略 */
+        .box2 {
+            width: 100px;
+            height: 85px;
+            margin: 400px auto;
+            background-color: pink;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            display: -webkit-box;
+            /* 弹性伸缩盒子模型显示 */
+            -webkit-line-clamp: 4;
+            /* 限制在一个块元素显示的文本行数 */
+            -webkit-box-orient: vertical;
+            /* 设置或检索伸缩对象子元素的排列方式 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
+    <div class="box2">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener('load', () => {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', () => {
+                alert('CLICK!');
+            });
+        });
+        // 等页面加载完毕再执行js函数
+        document.addEventListener('DOMContentLoaded', () => {
+            alert(123);
+        });
+        // 等DOM加载完毕不包含flash css等就可以执行，加载速度比load快。
+    </script>
+</head>
+
+<body>
+    <button>click</button>
+</body>
+
+</html>

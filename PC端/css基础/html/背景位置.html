@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d1 {
+            background-image: url(../img/logo-public.png);
+            background-repeat: no-repeat;
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            background-position: center center;
+            /* 为方位名词时： 
+            若只指定一个值则另一个值默认为center */
+        }
+
+        .d2 {
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+            background-repeat: no-repeat;
+            background-image: url(../img/logo-public.png);
+            background-position: 100px 100px;
+            /* 为精确单位x, y时 位置为 x轴和 y轴相对位置 
+            仅设置一个数值则为x 则另一个默认center*/
+        }
+
+        .d3 {
+            width: 300px;
+            height: 300px;
+            background-color: cadetblue;
+            background-image: url(../img/logo-public.png);
+            background-repeat: no-repeat;
+            background-position: 30px top;
+            /* 为混合单位时 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/editormd.min.css" type="text/css">
+    <link rel="stylesheet" href="css/ac.css" type="text/css">
+    <link rel="stylesheet" href="../font_editor/iconfont.css">
+    <link href="/demo/bs_css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container editor-nav">
+        <span class="top-logo"><a href="#"><img src="/demo/img/index/web-logo.png" alt="logo"></a></span>
+        <i class="editor-line"></i>
+        <div class="editor-title">编辑界面</div>
+        <div class="dropdown" id="editor-top-button">
+            <button class="btn btn-default dropdown-toggle top_button" type="button" id="dropdownMenu1"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="iconfont icon-icon-more"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">我的文章</a></li>
+                <li><a href="#">发现</a></li>
+            </ul>
+        </div>
+        <div class="head-portrait">
+            <a href="#"><img src="/demo/img/index/ldh.jpg" alt="头像"></a>
+        </div>
+    </div>
+    <form action="#" method="post" id="editor-form">
+        <div id="md-content" style="z-index: 1 !important;">
+            <textarea></textarea>
+        </div>
+        <div class="footer-editor container">
+            <p>千里之行,始于足下</p>
+            <input type="submit" value="发 布" class="submit-footer">
+            <div class="exit-button"><a href="#">退 出</a></div>
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="editormd.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/demo/bs_js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var contentEditor;
+        $(function () {
+            contentEditor = editormd("md-content", {
+                width: "80%",
+                height: 800,
+                syncScrolling: "single",
+                path: "./lib/",
+                imageUpload:true,
+                imageFormats : [ "jpg", "jpeg", "gif", "png", "bmp", "webp" ],
+                imageUploadURL : "${proPath }/base/blog/upFile",
+            }); 
+            
+            
+        });
+    </script>
+    
+</body>
+
+</html>

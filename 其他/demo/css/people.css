@@ -1,0 +1,95 @@
+.swiper-container {
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+    background-color: #fff;
+}
+
+.swiper-slide{
+    background-color: aliceblue !important;
+}
+
+.stu-img {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin-left: -60px;
+    vertical-align: middle;
+    border: 1px dotted rgb(7, 140, 235);
+}
+
+.stu-name {
+    position: absolute;
+    top: 200px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.stu-introduce {
+    position: absolute;
+    top: 240px;
+    padding: 0 20px;
+}
+
+.stu-introduce p {
+    height: 50%;
+    width: 100%;
+    text-indent: 2em;
+    font-size: 18px;
+    text-align: left;
+    line-height: 35px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+}
+
+.stu-introduce span {
+    position: absolute;
+    font-weight: 600;
+    top: 350px;
+    left: 10px;
+    transition: 1s;
+}
+
+@media (max-width:1350px) {
+    .stu-introduce span {
+        font-size: 14px;
+    }
+}
+
+@media (max-width:690px) {
+    .stu-introduce span {
+        font-size: 12px;
+    }
+}
+
+@media (max-height :640px) {
+    .stu-introduce span {
+        top: 300px;
+    }
+}
+
+@media (max-height :590px) {
+    .stu-introduce span {
+        display: none;
+    }
+}
+
+@media (max-height :546px) {
+    .stu-introduce p {
+        font-size: 14px;
+    }
+}
+
+@media (max-height :472px) {
+    .stu-introduce p {
+        font-size: 12px;
+    }
+}
+
+@media (max-height :440px) {
+    .stu-introduce p {
+        -webkit-line-clamp: 4;
+    }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text"><button>点击</button>
+    <div></div>
+    <script>
+        let str = '      ad d       ';
+        console.log(str.trim());
+        console.log(str);
+
+        let input = document.querySelector('input');
+        let btn = document.querySelector('button');
+        let div =document.querySelector('div');
+        btn.onclick = function() {
+            let value = input.value.trim();
+            if(value === '') {
+                alert('请输入内容！');
+            } else {
+                div.innerHTML = value;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .d1 {
+            width: 400px;
+            height: 400px;
+            background-color: yellow;
+            /* overflow: hidden; */
+            /* border: 1px solid yellow; */
+            padding: 1px;
+            /* 三种方法避免塌陷
+            父元素上边框
+            父元素内边距
+            overflow:hidden */
+        }
+
+        .d2 {
+            margin-top: 100px;
+            /* 父元素会一起塌陷下来 */
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d1">
+        <div class="d2">
+        </div>
+    </div>
+</body>
+
+</html>

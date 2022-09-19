@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" method="post" name="">
+        user:<input type="text" value="显现文字" maxlength="8"><br />
+        <!-- maxlength最大输入字符长度, value显现值 -->
+        password:<input type="password" maxlength="8"><br />
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+
+        单选框:<input type="radio" value="显示值" name="same">
+        <input type="radio" name="same" value="显示值"><br />
+        <!-- 单选框和复选框name要一致保证选择为单选 -->
+        复选框:1<input type="checkbox" checked="checked">2<input type="checkbox">3<input type="checkbox">
+        <input type="file"><br/>
+
+        <label for="testLabel">测试</label>
+        <input type="test" id="testLabel">
+        <!-- label标签for值和input标签id值相同建立连接 -->
+        <label for="testRadio">test1</label>
+        <input type="radio" id="testRadio" name="test1">
+        <label for="testRadio2">test2</label>
+        <input type="radio" id="testRadio2" name="test1">
+
+        <select name="" id="">
+            <option>a</option>
+            <option>b</option>
+            <option selected="selected">c</option>
+        </select><br />
+        <!-- selected属性和checked属性为默认被选中 -->
+
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+    </form>
+</body>
+
+</html>

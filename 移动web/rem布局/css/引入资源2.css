@@ -1,0 +1,12 @@
+div {
+    width: 100%;
+    height: 100px;
+}
+
+div:first-child {
+    background-color: lawngreen;
+}
+
+div:nth-child(2) {
+    background-color: lightblue;
+}

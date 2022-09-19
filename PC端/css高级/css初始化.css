@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    border: 0;
+    /* 照顾低版本浏览器 */
+    vertical-align: middle;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c81623;
+}
+
+body {
+    /* CSS3抗锯齿 让文字显示更清晰 */
+    -webkit-font-smoothimg: antialiased;
+    background-color: #fff;
+    font: 12px/1.5;
+}

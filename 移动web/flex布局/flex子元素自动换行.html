@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 800px;
+            height: 400px;
+            background-color: skyblue;
+            justify-content: space-between;
+            /* flex布局默认子元素不换行，若装不下则会缩小子元素强制排列 */
+            flex-wrap: wrap;
+        }
+
+        span {
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div><span></span><span></span><span></span></div>
+</body>
+</html>

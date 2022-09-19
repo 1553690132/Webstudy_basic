@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const fn = () => {
+            console.log(this);
+        }
+        fn();
+
+        const obj = {
+            say: () => console.log(this)
+        }
+        obj.say();
+
+        const obj2 = {
+            say: function () {
+                return () => console.log(this);
+            }
+        }
+        obj2.say()();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <script src="../axios/axios.js"></script>
+</head>
+
+<body>
+    <button id="b1">传统方式GET</button>
+    <button id="b2">传统方式POST</button>
+    <button id="b3">jQuery的GET</button>
+    <button id="b4">jQuery的POST</button>
+    <button id="b5_1">jQuery的Ajax的GET</button>
+    <button id="b5_2">jQuery的Ajax的POST</button>
+    <button id="b6">axios的GET</button>
+    <button id="b7">axios的POST</button>
+    <button id="b8_1">axios综合的GET</button>
+    <button id="b8_2">axios综合的POST</button>
+    <script>
+        $(() => {
+            const getUrl = 'http://www.liulongbin.top:3006/api/getbooks';
+            const postUrl = 'http://www.liulongbin.top:3006/api/addbook';
+
+            // 传统方式GET
+            $('#b1').on('click', function () {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', getUrl);
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log(JSON.parse(xhr.responseText));
+                    }
+                }
+            })
+
+            // 传统方式POST
+            $('#b2').on('click', function () {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', postUrl);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send('bookname=lwhlss&author=4758ad1&publisher=asdfgasd');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log(xhr.responseText);
+                    }
+                }
+            })
+
+            // jQuery的GET
+            $('#b3').on('click', function () {
+                $.get(getUrl, { id: 1 }, res => console.log(res));
+            })
+
+            // jQuery的POST
+            $('#b4').on('click', function () {
+                $.post(postUrl, { bookname: 'qweads', author: 'lwh', publisher: '123' }, res => console.log(res));
+            })
+
+            // jQuery的Ajax的GET
+            $('#b5_1').on('click', function () {
+                $.ajax({
+                    method: 'GET',
+                    url: getUrl,
+                    data: {
+                        id: 1,
+                    },
+                    success: res => console.log(res)
+                })
+            })
+
+            // jQuery的Ajax的POST
+            $('#b5_2').on('click', function () {
+                $.ajax({
+                    method: 'POST',
+                    url: postUrl,
+                    data: {
+                        bookname: 'lwhqwer',
+                        author: 'asxz',
+                        publisher: '123'
+                    },
+                    success: res => console.log(res)
+                })
+            })
+
+            // axios的GET
+            $('#b6').on('click', function () {
+                axios.get(getUrl, { params: { id: 1 } }).then(res => console.log(res.data));
+            })
+
+            // axios的POST
+            $('#b7').on('click', function () {
+                axios.post(postUrl, { bookname: 'qwasdz', author: '72ad', publisher:'L47' }).then(res => console.log(res.data));
+            })
+
+            // axios综合的GET
+            $('#b8_1').on('click', function () {
+                axios({
+                    method: 'GET',
+                    url: getUrl,
+                    params: {
+                        id: 1,
+                    }
+                }).then(res => console.log(res.data));
+            })
+
+            // axios综合的POST
+            $('#b8_2').on('click', function () {
+                axios({
+                    method: 'POST',
+                    url: postUrl,
+                    data: {
+                        bookname: 'lousnz',
+                        author: '7q2ad',
+                        publisher: 'w47'
+                    }
+                }).then(res => console.log(res.data));
+            })
+        })
+    </script>
+</body>
+
+</html>

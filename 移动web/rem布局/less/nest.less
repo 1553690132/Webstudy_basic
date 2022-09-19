@@ -1,0 +1,24 @@
+.header {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    a {
+        color: red;
+    }
+}
+// less的嵌套
+
+.nav {
+    width: 200px;
+    height: 200px;
+    .logo {
+        width: 20px;
+        height: 20px;
+        background-color: yellow;
+        color: blue;
+        &:hover {
+            background-color: green;
+        }
+        // 伪类选择器复合
+    }
+}

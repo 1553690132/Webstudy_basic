@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10">
+        getElementByTagName与querySelectorAll的区别：
+
+getElementByTagName：获取的类数组无法通过forEach遍历，但可以通过for循环，数组为动态。
+
+querySelectorAll：可以通过forEach遍历，数组为静态：但是DOM内部发生变化，依旧会动态改变。
+    </textarea>
+    <button type="submit" disabled>已阅读用户协议</button>
+    <script>
+        let btn = document.querySelector('button');
+        let text = document.querySelector('textarea');
+        let i = 10;
+        let timer = setInterval(function () {
+            i--;
+            btn.innerHTML = `已阅读用户协议(${i})`;
+            if(i === 0) {
+                clearInterval(timer);
+                btn.innerHTML = `我同意协议！`;
+                btn.disabled = false;
+            }
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

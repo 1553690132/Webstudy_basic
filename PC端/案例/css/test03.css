@@ -1,0 +1,16 @@
+a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    height: 40px;
+    width: 200px;
+    font-size: 14px;
+    padding-left: 30px;
+    line-height: 40px;
+    background-color: grey;
+}
+
+/* 文字行高等于盒子的高度则为垂直居中！！ */
+a:hover {
+    background-color: orange;
+}

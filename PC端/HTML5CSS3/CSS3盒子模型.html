@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .old {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 20px solid red;
+            padding: 10px;
+            /* 对固定大小盒子设置border和padding会撑大盒子 */
+            box-sizing: content-box; 
+            /* 旧版 */
+        }
+        /* 旧版 */
+
+        .new {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 20px solid red;
+            padding: 10px;
+            /* CSS3盒子模型 最终大小为width大小 */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="old">
+        ABC
+    </div>
+    <div class="new">
+        EFG
+    </div>
+</body>
+
+</html>

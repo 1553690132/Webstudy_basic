@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        div {
+            position: fixed;
+            top: 200px;
+            right: 0;
+            width: 45px;
+            height: 45px;
+            background-color: antiquewhite;
+            color: #000;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        let div = document.querySelector('div');
+        document.addEventListener('scroll', () => {
+            if (window.pageYOffset > 800) {
+                div.innerHTML = '返回顶部';
+                div.addEventListener('click', () => {
+                    animationScroll(window, 0);
+                })
+            } else {
+                div.innerHTML = '';
+            }
+        })
+
+        function animationScroll(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(() => {
+                let len = target - window.pageYOffset;
+                let step = len > 0 ? Math.ceil(len / 10) : Math.floor(len / 10);
+                // 将步长值转化为整数,防止误差.
+                if (window.pageYOffset == target) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }
+                window.scroll(0, window.pageYOffset + step);
+            }, 15);
+        }
+    </script>
+</body>
+
+</html>

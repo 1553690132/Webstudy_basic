@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <script src="template-web.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/html" id="tpl-user">
+        // 定义模板要在script标签中且type是text/html
+        <h1>{{name}}   {{age}}  {{@test}}</h1>
+        <h2>{{if flag === 0}} 
+            flag的值是{{flag}}
+             {{else if flag === 1}} {{flag}}
+             {{/if}}</h2>
+        <ul>
+            {{each hobby}}
+                <li>索引是：{{$index}}  循环项是：{{$value}}</li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script>
+        const data = { name: 'lwh', age: 18, test: '<h2>M</h2>', flag: 1, hobby: ['a', 'b', 'c'] }
+        const htmlStr = template('tpl-user', data);
+        document.querySelector('#container').innerHTML = htmlStr;
+    </script>
+</body>
+
+</html>

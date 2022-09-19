@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            uname: 'lwh',
+            age: 18,
+            family: {
+                num: 4
+            }
+        };
+        // 利用递归函数实现
+        const o1 = {};
+        function copy1(newObj, oldObj) {
+            for (const v in oldObj) {
+                if (oldObj[v] instanceof Array) {
+                    newObj[v] = [];
+                    copy1(newObj[v], oldObj[v]);
+                } else if (oldObj[v] instanceof Object) {
+                    newObj[v] = {};
+                    copy1(newObj[v], oldObj[v]);
+                } else {
+                    newObj[v] = oldObj[v];
+                }
+            }
+        }
+        copy1(o1, obj);
+        console.log(obj);
+        console.log(o1);
+    </script>
+</body>
+
+</html>

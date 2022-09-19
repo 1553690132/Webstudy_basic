@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li:first-child {
+            background-color: pink;
+        }
+        ul li:last-child{
+            background-color: red;
+        }
+        ul li:nth-child(2){
+            background-color: green;
+        }
+        ul li:nth-child(even) {
+            font-size: 30px;
+        }
+        ul li:nth-child(odd){
+            font-style: italic;
+        }
+        /* nth-child会把所有盒子都排列序号
+        执行时优先选择nth-child中的n之后再看对象是谁
+           nth-of-type会优先把指定元素排列序号
+        */
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+
+</html>

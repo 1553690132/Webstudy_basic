@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 600px;
+            height: 400px;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(233, 233, 40);
+            opacity: .5;
+            cursor: move;
+        }
+
+        .bigger {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 800px;
+            width: 400px;
+            height: 400px;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .bigImg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .mainImg {
+            position: absolute;
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <img class="mainImg" src="/JS/BOM/img/focus1.jpg" alt="">
+        <div class="mask"></div>
+    </section>
+    <div class="bigger">
+        <img class="bigImg" src="/JS/BOM/img/focus1.png" alt="">
+    </div>
+    <script>
+        let bigger = document.querySelector('.bigger');
+        let mask = document.querySelector('.mask');
+        let section = document.querySelector('section');
+        let move = function (e) {
+            let x = e.pageX - section.offsetLeft;
+            let y = e.pageY - section.offsetTop;
+            let widths = x - mask.offsetWidth / 2;
+            let heights = y - mask.offsetHeight / 2;
+            let maxWidth = section.offsetWidth - mask.offsetWidth;
+            let maxHeight = section.offsetHeight - mask.offsetHeight;
+            if (widths <= 0) {
+                widths = '0px'
+            } else if (widths >= maxWidth) {
+                widths = maxWidth;
+            }
+            if (heights <= 0) {
+                heights = '0px'
+            } else if (heights >= maxHeight) {
+                heights = maxHeight;
+            }
+            mask.style.left = widths + 'px';
+            mask.style.top = heights + 'px';
+
+            let bigImg = document.querySelector('.bigImg');
+            let bigMax_w = bigImg.offsetWidth - bigger.offsetWidth;
+            let bigMax_h = bigImg.offsetHeight - bigger.offsetWidth;
+            let bigX = widths * bigMax_w / maxWidth;
+            let bigY = heights * bigMax_h / maxHeight;
+            bigImg.style.left = -bigX + 'px';
+            bigImg.style.top = -bigY + 'px';
+        }
+        section.addEventListener('mouseover', () => {
+            mask.style.display = 'block';
+            bigger.style.display = 'block';
+        });
+        section.addEventListener('mousemove', move);
+        section.addEventListener('mouseout', () => {
+            mask.style.display = 'none';
+            bigger.style.display = 'none';
+            this.removeEventListener('mousemove', move);
+        });
+    </script>
+</body>
+
+</html>

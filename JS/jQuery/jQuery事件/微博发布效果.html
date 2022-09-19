@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            padding: 30px;
+            width: 500px;
+            margin: 100px auto;
+            border: 1px solid #000;
+
+        }
+
+        .content {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        textarea {
+            flex: 8;
+            resize: none;
+            margin: 20px;
+        }
+
+        span {
+            flex: 1;
+        }
+
+        .btn {
+            flex: 1;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 70px;
+        }
+
+        ul li {
+            position: relative;
+            border-bottom: 1px dotted #aaa;
+            list-style: none;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        ul li a {
+            position: absolute;
+            right: 0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="weibo">
+        <div class="content">
+            <span>微博发布</span>
+            <textarea class="txt" name="" id="" cols="30" rows="10"></textarea>
+            <button class="btn">发布</button>
+        </div>
+        <ul>
+        </ul>
+    </div>
+    <script>
+        $(() => {
+            $('.btn').on('click', function () {
+                const li = $('<li></li>');
+                li.html($('.txt').val() + '<a href="javascript:;">删除</a>')
+                $('ul').prepend(li);
+                li.slideDown();
+                $('.txt').val('');
+            });
+
+            $('ul').on('click', "a", function () {
+                $(this).parent().slideUp(function() {
+                    $(this).remove();
+                });
+            })
+        })
+    </script>
+</body>
+
+</html>

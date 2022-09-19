@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 标签选择器 */
+        h1 {
+            color: blueviolet;
+        }
+
+        /* 类选择器 */
+        .li1 {
+            color: red;
+        }
+
+        .blue {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .p1 {
+            text-decoration: underline;
+        }
+
+        .p2 {
+            text-decoration: line-through;
+        }
+
+        .p3 {
+            text-decoration: overline;
+        }
+
+        /* id选择器 */
+        #test_p {
+            color: rgb(220, 70, 170);
+            /* font-family: "Microsoft YaHei", "宋体";
+            font-size: 30px;
+            font-style: italic; 
+            font-weight: 400=normal 700=bold*/
+            font: italic 700 16px/20px "Microsoft YaHei";
+            /* font: font-style font-weight font-size/line-height font-family 
+            font-size和font-family必须有 */
+        }
+
+        /* 通配符选择器 */
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>data</h1>
+    <ul>
+        <li class="li1">1</li>
+        <li>2</li>
+    </ul>
+    <p class="p1">aaa</p>
+    <p class="p2">bbb</p>
+    <p class="p3">ccc</p>
+    <p class="li1">1</p>
+    <div class="blue"></div>
+    <div class="red"></div>
+    <p id="test_p">test</p>
+    <!-- id用css调用加'#' 且只能被调用一次-->
+</body>
+
+</html>

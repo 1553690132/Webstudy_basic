@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const fn = () => {
+            // 基本写法
+        }
+        fn();
+
+        const fun = (n, m) => {
+            console.log(n + m);
+        }
+        fun(1, 2);
+        // 如果函数只有一个参数 小括号可以省略
+        const fun2 = x => {
+            console.log(x);
+        }
+        fun2(1);
+        // 只有一行代码 则大括号也可省略
+        const fun3 = x => console.log(x);
+        fun3(3);
+
+        const fun4 = x => x + x;
+        fun4(3);
+
+        const fun5 = (uname) => ({ uname: uname })
+        fun5('lwh');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        .container ul li {
+            float: left;
+            list-style: none;
+            width: 93.75px;
+            height: 30px;
+            background-color: lightgreen;
+        }
+
+        @media screen and (max-width:768px) {
+            .container {
+                width: 100%;
+            }
+
+            .container ul li {
+                width: 33.33%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li>1导航栏</li>
+            <li>2导航栏</li>
+            <li>3导航栏</li>
+            <li>4导航栏</li>
+            <li>5导航栏</li>
+            <li>6导航栏</li>
+            <li>7导航栏</li>
+            <li>8导航栏</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fn();
+        function fn() {
+            console.log(123);
+        }
+
+        fun();
+        var fun = function() {
+            console.log(123);
+        }
+        // 报错 相当于只声明fun，由于只提升声明不提升赋值故fun此时不是函数
+    </script>
+</body>
+</html>

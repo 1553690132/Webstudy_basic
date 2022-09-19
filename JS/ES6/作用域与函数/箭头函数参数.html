@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const getSum = (...arr) => {
+            let sum = 0;
+            arr.forEach(x => {
+                sum += x;
+            })
+            console.log(sum);
+            console.log(arr);
+        }
+        getSum(1, 3, 45);
+    </script>
+</body>
+
+</html>

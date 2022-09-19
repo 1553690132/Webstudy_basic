@@ -1,0 +1,44 @@
+{
+  "id": "3368709",
+  "name": "xyh",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "29306534",
+      "name": "icon-aircraft",
+      "font_class": "icon-aircraft",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "29306538",
+      "name": "icon-arrow-double-up",
+      "font_class": "icon-arrow-double-up",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "29306616",
+      "name": "icon-more",
+      "font_class": "icon-more",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "29306618",
+      "name": "icon-menu",
+      "font_class": "icon-menu",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "29306697",
+      "name": "icon-verificationcode",
+      "font_class": "icon-verificationcode",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    }
+  ]
+}

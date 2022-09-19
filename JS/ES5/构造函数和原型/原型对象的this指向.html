@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        let that;
+        Star.prototype.sing = function() {
+            console.log(12312313);
+            that = this;
+        }
+
+        let lwh = new Star('lwh', 18);
+        lwh.sing();
+        console.log(that === lwh);
+        // 构造函数中this指向实例对象
+        // 原型对象函数this也指向实例对象
+    </script>
+</body>
+
+</html>

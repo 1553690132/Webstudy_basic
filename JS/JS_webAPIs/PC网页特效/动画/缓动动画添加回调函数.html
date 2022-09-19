@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            top: 200px;
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button class="btn500">500px</button>
+    <button class="btn800">800px</button>
+    <script>
+        let div = document.querySelector('div');
+        function animations(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(() => {
+                let len = target - obj.offsetLeft;
+                let step = len > 0 ? Math.ceil(len / 10) : Math.floor(len / 10);
+                // 将步长值转化为整数,防止误差.
+                if (div.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if(callback) {
+                        callback();
+                    }
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 15);
+        }
+        let btn500 = document.querySelector('.btn500');
+        let btn800 = document.querySelector('.btn800');
+        btn500.addEventListener('click', () => {
+            animations(div, 500, ()=> {
+                console.log(123);
+            });
+        });
+        btn800.addEventListener('click', () => {
+            animations(div, 800, ()=> {
+                console.log(123);
+            });
+        })
+    </script>
+</body>
+
+</html>

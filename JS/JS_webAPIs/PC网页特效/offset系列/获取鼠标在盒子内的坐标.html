@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            background-color: lightblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+    </div>
+
+    <script>
+        let div = document.querySelector('div'), p = document.querySelector('p');
+        div.addEventListener('click', (e) => {
+            p.innerHTML =  `鼠标当前x坐标为${e.pageX - div.offsetLeft}，y坐标为${e.pageY - div.offsetTop}`;
+        });
+    </script>
+</body>
+
+</html>

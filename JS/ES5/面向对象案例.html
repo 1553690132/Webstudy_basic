@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .model {
+            width: 40%;
+            height: 200px;
+            margin: 100px auto;
+            background-color: #ddd;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .header {
+            position: relative;
+            margin-top: 10px;
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+        }
+
+        .header i {
+            position: absolute;
+            right: 20px;
+        }
+
+        .body {
+            flex: 2;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        i {
+            cursor: pointer;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="delete">删除</button>
+    <button id="login">登录</button>
+
+    <script>
+        // function Model(title = '', message = '') {
+        //     this.title = title;
+        //     this.message = message;
+        //     // 创建公共模态框
+        //     this.modelBox = document.createElement('div');
+        //     this.modelBox.className = 'model';
+        //     this.modelBox.innerHTML = `
+        // <div class="header">${this.title}<i>X</i></div>
+        // <div class="body">${this.message}</div>`;
+        // }
+
+        // Model.prototype.opens = function () {
+        //     if (!document.querySelector('.model')) {
+        //         document.body.appendChild(this.modelBox);
+        //         this.modelBox.querySelector('i').addEventListener('click', () => {
+        //             this.closes();
+        //             // 使用箭头函数使得this指向变成了i的上级modelBox！！！
+        //         });
+        //     }
+        // }
+
+        // Model.prototype.closes = function () {
+        //     document.body.removeChild(this.modelBox);
+        // }
+
+        // document.querySelector('#delete').addEventListener('click', () => {
+        //     const m = new Model('温馨提示', '您没有权限删除');
+        //     m.opens();
+        // });
+
+        // document.querySelector('#login').addEventListener('click', () => {
+        //     const m = new Model('提示！', '登录成功！');
+        //     m.opens();
+        // })
+
+
+        function Model(title = '', message = '') {
+            this.message = message;
+            this.title = title;
+            this.modelBox = document.createElement('div');
+            this.modelBox.className = 'model';
+            this.modelBox.innerHTML = ` 
+        <div class="header">${this.title}<i>X</i></div>
+        <div class="body">${this.message}</div>`;
+        }
+
+        Model.prototype.opens = function () {
+            if (!document.querySelector('.model')) {
+                document.body.appendChild(this.modelBox);
+                this.modelBox.querySelector('i').addEventListener('click', () => {
+                    this.closes();
+                })
+            }
+        }
+
+        Model.prototype.closes = function () {
+            document.body.removeChild(this.modelBox);
+        }
+
+        document.querySelector('#delete').addEventListener('click', () => {
+            const m = new Model('抱歉！', '您没有操作权限！');
+            m.opens();
+        });
+
+        document.querySelector('#login').addEventListener('click', () => {
+            const m = new Model('提示！', '您应该先注册！');
+            m.opens();
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 自定义函数--命名函数
+        function fn1() {
+
+        }
+        // 函数表达式--匿名函数
+        let fn2 = function () {
+
+        }
+        // new Function('参数','函数体')
+        let fn3 = new Function('a', 'b', 'console.log(a + b)');
+        console.log(fn3.__proto__);
+        console.dir(fn3)
+        console.log(Function.prototype.__proto__);
+    </script>
+</body>
+
+</html>

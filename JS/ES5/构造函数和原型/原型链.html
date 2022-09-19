@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person() {
+
+        }
+
+        console.log(Object.prototype);
+        console.log(Object.prototype.__proto__);
+        console.log(Object.__proto__);
+        const people = new Person();
+        console.log(people.__proto__ === Person.prototype);
+        console.log(people.__proto__.construtor === Person.prototype.construtor);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+    background-color: #f6f6f6;
+    font-family: -apple-system, Helvetica, sans-serif;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.search-wrap {
+    position: fixed;
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    height: 44px;
+    background-color: rgb(207, 15, 15);
+    z-index: 100;
+    overflow: hidden;
+    /* 消除外边距合并 */
+}
+
+.search-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+}
+
+.search-btn::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 18px;
+    background: url('../images/t1.png') no-repeat;
+    background-size: 20px 18px;
+    margin: 14px 0 0 15px;
+}
+
+.search-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+}
+
+.search {
+    position: relative;
+    height: 30px;
+    background-color: #fff;
+    margin: 0 40px 0 50px;
+    border-radius: 15px;
+    margin-top: 7px;
+}
+
+.jd-icon {
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    top: 8px;
+    left: 13px;
+    background: url('../images/jd.png') no-repeat;
+    background-size: 20px 15px;
+}
+
+.jd-icon::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 1px;
+    height: 15px;
+    background-color: #ccc;
+    top: 0;
+    right: -8px;
+}
+
+.sou {
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    width: 18px;
+    height: 15px;
+    background: url('../images/jd-sprites.png') no-repeat -81px 0;
+    background-size: 200px auto;
+}
+
+.slider img {
+    margin-top: 44px;
+    width: 100%;
+    height: 100%;
+}
+
+nav {
+    position: relative;
+    padding-top: 5px;
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+nav a img {
+    width: 40px;
+    margin: 10px 0 0 0;
+}
+
+nav a span {
+    display: block;
+}
+
+.floor-the-container {
+    position: relative;
+    margin: 20px 3% 0 3%;
+}
+
+.floor-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.sec-kill {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px #f2f2f2;
+}
+
+.title-wrap {
+    position: relative;
+    height: 20px;
+    line-height: 20px;
+    padding-top: 5px;
+    background: url('../images/bgskill.png') no-repeat;
+    background-size: contain;
+    width: 100%;
+    overflow: hidden;
+    color: #333;
+}
+
+.kill-left {
+    position: absolute;
+    left: 10px;
+    float: left;
+    display: inline-block;
+}
+
+.kill-right {
+    float: right;
+    display: inline-block;
+    position: relative;
+    font-size: 12px;
+    text-align: right;
+    padding-right: 26px;
+    color: #f23030;
+}
+
+.kill-right i {
+    position: absolute;
+    display: inline-block;
+    background: url('../images/icons.png') no-repeat;
+    background-size: cover;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    top: 3px;
+    right: 8px;
+}
+
+.kill-list {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.sec-kill {
+    padding-bottom: 5px;
+}
+
+.sec-kill-its {
+    float: left;
+    width: 16%;
+    margin-left: 2px;
+}
+
+.things-a img {
+    width: 100%
+}
+
+.kill-price {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.price {
+    display: block;
+    color: #f2270c;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.price em {
+    font-style: normal;
+}

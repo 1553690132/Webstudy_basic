@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 100px auto;
+            background-color: #ccc;
+            width: 400px;
+            font-size: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        const datas = [{
+            name: 'lwh',
+            subject: 'javascript',
+            score: 90
+        }, {
+            name: 'zzz',
+            subject: 'javascript',
+            score: 100
+        },
+        {
+            name: 'abc',
+            subject: 'javascript',
+            score: 80
+        },
+        {
+            name: 'tql',
+            subject: 'javascript',
+            score: 60
+        },
+        {
+            name: 'fw',
+            subject: 'javascript',
+            score: 40
+        }];
+
+        let tbody = document.querySelector('tbody');
+        console.log(datas.length);
+        for(let i = 0; i < datas.length; i++) {
+            let tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for(const v in datas[i]) {
+                let td = document.createElement('td');
+                td.innerHTML = datas[i][v];
+                tr.appendChild(td);
+            }
+            let td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;">删 除</a>';
+            tr.appendChild(td);
+        }
+        let dels = document.querySelectorAll('a');
+        for(let i = 0; i < dels.length; i++) {
+            dels[i].onclick = function() {
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+
+        Star.prototype.sing = function() {
+            console.log(12312313);
+        }
+
+        let lwh = new Star('lwh', 18);
+        Object.prototype.sex = '1man';
+        Star.prototype.sex = '2man';
+        lwh.sex = '3man';
+        // 就近原则查找
+        console.log(lwh.sex);
+    </script>
+</body>
+
+</html>

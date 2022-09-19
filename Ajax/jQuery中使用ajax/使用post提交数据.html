@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="btn">发起post请求</button>
+    <script>
+        $(() => {
+            $('#btn').on('click', () => $.post('http://www.liulongbin.top:3006/api/addbook',
+                { bookname: '三国演义a', author: '罗贯中', publisher: '天津图书出版社' }, res => console.log(res)))
+        })
+    </script>
+</body>
+
+</html>

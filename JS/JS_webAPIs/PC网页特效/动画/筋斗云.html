@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        nav {
+            position: relative;
+            margin: 100px auto;
+            height: 42px;
+            width: 900px;
+            background: #fff url('img/rss.png') no-repeat right center;
+            border-radius: 10px;
+        }
+
+        nav ul {
+            position: absolute;
+        }
+
+        nav li {
+            float: left;
+            width: 83px;
+            text-align: center;
+            line-height: 42px;
+        }
+
+        nav li a {
+            color: #333;
+            text-decoration: none;
+            display: inline-block;
+            height: 42px;
+        }
+
+        nav li a:hover {
+            color: #fff;
+        }
+
+        .cloud {
+            position: absolute;
+            left: 0px;
+            width: 0px;
+            width: 83px;
+            height: 42px;
+            background: url('img/cloud.gif') no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <span class="cloud"></span>
+        <ul>
+            <li><a href="#">首页新闻</a></li>
+            <li><a href="#">师资力量</a></li>
+            <li><a href="#">活动策划</a></li>
+            <li><a href="#">企业文化</a></li>
+            <li><a href="#">招聘信息</a></li>
+            <li><a href="#">公司简介</a></li>
+            <li><a href="#">上海校区</a></li>
+            <li><a href="#">广州校区</a></li>
+        </ul>
+    </nav>
+    <script src="../动画/animate.js"></script>
+    <script>
+        let cloud = document.querySelector('.cloud');
+        let nav = document.querySelector('nav');
+        let lis = document.querySelectorAll('li');
+        let flag = 0;
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('mouseenter', function () {
+                animations(cloud, this.offsetLeft);
+            });
+            lis[i].addEventListener('mouseleave', () => {
+                animations(cloud, flag);
+            });
+            lis[i].addEventListener('click', function () {
+                flag = this.offsetLeft;
+            });
+        };
+    </script>
+</body>
+
+</html>

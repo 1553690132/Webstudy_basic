@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/JS/jQuery/jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .current {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ol>
+        <li>3</li>
+        <li>3</li>
+        <li>3</li>
+    </ol>
+    <script>
+        $(() => {
+            $('div').on({
+                mouseenter: function() {
+                    $(this).css('background', 'blue');
+                },
+                mouseleave: function() {
+                    $(this).css('background', 'pink');
+                },  
+                click:function() {
+                    $(this).css('background', 'yellow');
+                }
+            })
+
+            // 同一事件
+            $('div').on('mouseenter mouseleave', function() {
+                $(this).toggleClass('current');
+            });
+
+            $('ul').on('click', 'li', function() {
+                
+            });
+
+            // 动态创建元素设置事件
+            $('ol').on('click', 'li', ()=> alert(111));
+            const li = $('<li>动态生成</li>')
+            $('ol').append(li);
+        })
+    </script>
+</body>
+
+</html>

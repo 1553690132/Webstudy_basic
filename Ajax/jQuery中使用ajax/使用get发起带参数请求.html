@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="btn">发起带参数请求</button>
+    <script>
+        $(() => {
+            $('#btn').on('click', () => $.get('http://www.liulongbin.top:3006/api/getbooks', { id: 1 }, res => console.log(res)))
+            // 第二个参数是指定获取的参数范围，例如这里只请求id=1的数据
+        })
+    </script>
+</body>
+
+</html>

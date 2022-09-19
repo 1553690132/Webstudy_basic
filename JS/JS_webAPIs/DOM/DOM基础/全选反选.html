@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 300px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        thead {
+            background-color: rgb(40, 171, 224);
+            color: #fff;
+        }
+
+        tbody {
+            background-color: rgb(236, 236, 236);
+        }
+
+        th,
+        td {
+            height: 40px;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>商品</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>iphone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>ipad pro</td>
+                <td>9000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>ipad mini</td>
+                <td>3000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>apple watch</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        let checkTop = document.querySelector('th').querySelector('input');
+        let checkSon = document.querySelector('tbody').querySelectorAll('input');
+
+        checkTop.onclick = function () {
+            for (let i = 0; i < checkSon.length; i++) {
+                checkSon[i].checked = this.checked;
+            }
+        }
+
+        for (let i = 0; i < checkSon.length; i++) {
+            checkSon[i].onclick = function () {
+                let flag = true;
+                for (let j = 0; j < checkSon.length; j++) {
+                    if (!checkSon[j].checked) {
+                        flag = false;
+                        break;
+                    }
+                }
+                checkTop.checked = flag;
+            }
+        }
+    </script>
+</body>
+
+</html>

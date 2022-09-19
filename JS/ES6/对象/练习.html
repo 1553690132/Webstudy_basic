@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+    <script>
+        // 每个人涨薪30%计算总额：
+        const arr = [{
+            name: 'a',
+            salary: 10000
+        }, {
+            name: 'b',
+            salary: 10000
+        }, {
+            name: 'c',
+            salary: 10000
+        }];
+
+        let sum = arr.reduce((prev, item) => prev + item.salary * 1.3, 0);
+        console.log(sum);
+        // -----------------------------------------------------------------------------------------------
+        
+        const obj = {
+            id: '123',
+            name: 'az',
+            price: 139,
+            count: 1,
+            spec: { size: '小', color: 'pink' },
+            gift: '50gA,ZZZ'
+        };
+
+        document.querySelector('p').innerHTML = obj.gift.split(',').map(e => `<span>【赠品】${e}<span><br/>`).join('');
+
+
+    </script>
+</body>
+
+</html>

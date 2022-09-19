@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        margin: 50px auto;
+        border-collapse: collapse;
+        border: 1px solid #000;
+        text-align: center;
+    }
+
+    tr,
+    th,
+    td {
+        padding: 0 80px;
+        border: 1px solid #000;
+    }
+</style>
+
+<body>
+    <div class="search">
+        按照价格查询:
+        <input type="text" class="start"> - <input type="text" class="end">
+        <button class="search-price">搜索</button> 按照商品价格查询: <input type="text" class="product">
+        <button class="search-pro">查询</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var datas = [
+            {
+                id: 1,
+                pname: '小米',
+                price: 3999
+            }, {
+                id: 2,
+                pname: 'OPPO',
+                price: 2999
+            }, {
+                id: 3,
+                pname: 'iphone',
+                price: 8999
+            }, {
+                id: 4,
+                pname: 'HUAWEI',
+                price: 9999
+            }
+        ];
+        let tbody = document.querySelector('tbody');
+        function init(mydata) {
+            tbody.innerHTML = '';
+            // 清空再遍历
+            mydata.forEach(function (value) {
+                let tr = `<td>${value.id}</td><td>${value.pname}</td><td>${value.price}</td>`;
+                tbody.insertAdjacentHTML('beforeend', tr);
+            })
+        };
+        init(datas);
+
+        let minV = document.querySelector('.start');
+        let maxV = document.querySelector('.end');
+        let nameV = document.querySelector('.product')
+        let searchs = document.querySelector('.search-price');
+        let names = document.querySelector('.search-pro');
+        searchs.addEventListener('click', function () {
+            let newDatas = datas.filter(function (value) {
+                return value.price >= minV.value && value.price <= maxV.value;
+            });
+            init(newDatas);
+        });
+
+        names.addEventListener('click', function () {
+            let ans = [];
+            datas.some(function (value) {
+                if(value.pname === nameV.value) {
+                    ans.push(value);
+                    return true;
+                }
+            });
+            init(ans);
+        });
+
+    </script>
+</body>
+
+</html>

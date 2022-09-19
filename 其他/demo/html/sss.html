@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bs_css/bootstrap.min.css">
+    <style>
+        .w {
+            background-color: antiquewhite;
+        }
+
+        .a {
+            background-color: #ccc;
+        }
+
+        .b {
+            background-color: pink;
+        }
+
+        @media(max-width:1200px) {
+            .a,
+            .b {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container w">
+        <div class="row">
+            <!-- <div class="col-lg-6 col-md-4 col-sm-3 col-xs-2 a">.col-md-6</div>
+            <div class="col-lg-6 col-md-4 col-sm-3 col-xs-2 b">.col-md-6</div> -->
+            <div class="col-lg-6 a">.col-md-6</div>
+            <div class="col-lg-6 b">.col-md-6</div>
+        </div>
+    </div>
+    <div class="container">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Button
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </div>
+      </div>
+    
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="../bs_js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .search {
+            position: relative;
+            width: 200px;
+            margin: 100px auto;
+        }
+
+        .conn {
+            display: none;
+            background-color: #fff;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            box-shadow: 4px 4px 10px #aaa;
+            padding: 10px;
+        }
+
+        .conn::after {
+            position: absolute;
+            top: 89px;
+            left: 20px;
+            content: '';
+            border-color: transparent #fff transparent transparent;
+            border-style: solid dashed dashed dashed;
+            border-width: 20px 20px 0 0;
+            box-shadow: 4px 4px 4px #aaa;
+            transform: rotate(45deg);
+        }
+
+        input {
+            position: absolute;
+            top: 105px;
+            margin-top: 10px;
+            height: 30px;
+            width: 100%;
+            outline: none;
+            font-style: 26px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <div class="conn"></div>
+        <input type="text" placeholder="请输入你的快递单号" class="jd">
+    </div>
+
+    <script>
+        let input = document.querySelector('input');
+        let conn = document.querySelector('.conn');
+
+        input.addEventListener('keyup', function (e) {
+            if (this.value === '') {
+                conn.style.display = 'none';
+            } else {
+                conn.style.display = 'block';
+                conn.innerHTML = this.value;
+            }
+        });
+
+        input.addEventListener('blur', function () {
+            conn.style.display = 'none';
+        });
+
+        input.addEventListener('focus', function () {
+            if (input.innerHTML !== '') {
+                conn.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

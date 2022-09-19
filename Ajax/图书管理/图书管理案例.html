@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body style="padding:15px">
+
+    <div class="container">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加新图书</h3>
+            </div>
+
+            <div class="panel-body form-inline">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">书名</div>
+                            <input type="text" class="form-control" id="iptBookname" placeholder="请输入书名">
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">作者</div>
+                            <input type="text" class="form-control" id="iptAuthor" placeholder="请输入作者">
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">出版社</div>
+                            <input type="text" class="form-control" id="iptPublisher" placeholder="请输入出版社">
+                        </div>
+                    </div>
+                    <button id="btnAdd" class="btn btn-primary">添加</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图书表格 -->
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>书名</th>
+                    <th>作者</th>
+                    <th>出版社</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $(() => {
+            // 获取图书列表数据
+            function getBooklist() {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', (res) => {
+                    if (res.status !== 200) {
+                        return alert('获取数据失败！');
+                    }
+                    const rows = [];
+                    $.each(res.data, (index, item) => {
+                        rows.push(`<tr><td>${item.id}</td><td>${item.bookname}</td><td>${item.author}</td><td>${item.publisher}</td><td><a href="javascript:;" id=${index}>删除</a></td></tr>`);
+                    });
+                    $('#tb').empty().append(rows.join(''));
+                })
+            } getBooklist();
+
+            // 删除图书
+            $('#tb').on('click', 'a', function () {
+                const ids = $(this).attr('id');
+                $.get('http://www.liulongbin.top:3006/api/delbook', { id: ids }, (res) => {
+                    if (res.status !== 200) {
+                        return alert('删除失败！');
+                    }
+                    getBooklist();
+                })
+            });
+
+            // 添加图书
+            $('#btnAdd').on('click', () => {
+                const bookname = $('#iptBookname').val().trim();
+                const author = $('#iptAuthor').val().trim();
+                const publisher = $('#iptPublisher').val().trim();
+                // trim去除空格防止违法输入
+                if (bookname.length <= 0 || author.length <= 0 || publisher.length <= 0) {
+                    return alert('请填写完整图书信息!');
+                }
+                $.post('http://www.liulongbin.top:3006/api/addbook', {
+                    bookname: bookname,
+                    author: author,
+                    publisher: publisher,
+                }, (res) => {
+                    if (res.status !== 201) {
+                        return alert('添加图书失败!')
+                    }
+                    getBooklist();
+                    $('#iptBookname').val('');
+                    $('#iptAuthor').val('');
+                    $('#iptPublisher').val('');
+                })
+            });
+
+
+        })
+    </script>
+</body>
+
+</html>

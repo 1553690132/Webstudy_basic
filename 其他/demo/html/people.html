@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../swiper-5.4.5/package/css/swiper.min.css">
+    <link href="../bs_css/bootstrap.css" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet">
+    <link href="../css/same.css" rel="stylesheet">
+    <link href="../css/demo.css" rel="stylesheet">
+    <link href="../css/news.css" rel="stylesheet">
+    <link href="../css/people.css" rel="stylesheet">
+    <script src="../js/demo.js"></script>
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            transition: 300ms;
+            transform: scale(0.8);
+        }
+
+        .swiper-slide-active,
+        .swiper-slide-duplicate-active {
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav container">
+        <img src="../img/index/logo-main.png" alt="logo">
+        <ul class="title">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">新闻公告</a></li>
+            <li><a href="#">系内活动</a></li>
+            <li><a href="#">系友风采</a></li>
+            <li><a href="#">系友服务</a></li>
+            <li><a href="#">院系回忆</a></li>
+            <li><a href="#">更多信息</a></li>
+            <li><a href="#">论坛</a></li>
+        </ul>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+                Menu
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">新闻公告</a></li>
+                <li><a href="#">系内活动</a></li>
+                <li><a href="#">系友风采</a></li>
+                <li><a href="#">系友服务</a></li>
+                <li><a href="#">院系回忆</a></li>
+                <li><a href="#">更多信息</a></li>
+                <li><a href="#">论坛</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="banner">
+        <div class="banner-content">
+            <p class="bannerp1">哈尔滨师范大学计算机科学与信息工程学院</p>
+            <p class="bannerp2">系友风采</p>
+        </div>
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="stu-img"><img src="../img/index/ldh.jpg" alt="student"></div>
+                <div class="stu-name">
+                    <span>刘德华</span>
+                </div>
+                <div class="stu-introduce">
+                    <p>刘德华（Andy
+                        Lau），1961年9月27日出生于中国香港，籍贯广东新会，中国香港影视男演员、歌手、制片人、作词人。1981年出演电影处女作《彩云曲》。1983年主演的武侠剧《神雕侠侣》在香港取得62点的收视纪录。1985年发行首张个人专辑《只知道此刻爱你》。1990年凭借专辑《可不可以》在歌坛获得关注。1991年创办天幕电影公司。1994年获得十大劲歌金曲最受欢迎男歌星奖；
+                    </p>
+                    <span>联系方式:XXXXXXXXXXX</span>
+                </div>
+            </div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+    <div class="footer">
+        <img src="../img/index/ftlogo.png" alt="logo">
+        <div class="footerAll">
+            <div class="footer_blank container"></div>
+
+            <div class="footer_content container">
+                <div class="rows">
+                    <div class="content_left col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <dl>
+                            <dt><a href="#">友情链接</a></dt>
+                            <dd><a href="#">哈尔滨师范大学官网</a></dd>
+                            <dd><a href="#">哈尔滨师范大学教务处</a></dd>
+                            <dd><a href="#">哈尔滨师范大学校友总会</a></dd>
+                        </dl>
+                        <img class="ewm" src="../img/index/ewm2.jpg" alt="院二维码">
+                    </div>
+                    <div id="index-bottom" class="content_right col-lg-6 col-md-6 col-sm-6  col-xs-12 ">
+                        <table>
+                            <tr>
+                                <td class="td1">版权所有</td>
+                                <td>©2022 SimRobot Studio</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">校园地址:</td>
+                                <td>(松北校区) 哈尔滨市利民经济开发区师大路1号</td>
+                            </tr>
+                            <tr>
+                                <td class="td1"></td>
+                                <td>(江南校区) 哈尔滨市南岗区和兴路50号</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">邮政编码:</td>
+                                <td>150500</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">联系电话:</td>
+                                <td>0451-88060114, 88067222</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="../swiper-5.4.5/package/js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person() {
+            this.eyes = 2;
+            this.mouth = 1;
+        }
+
+        Women.prototype = new Person();
+        Women.prototype.constructor = Women;
+        function Women() {
+
+        }
+        Women.prototype.baby = function () {
+            console.log(123);
+        }
+
+        Man.prototype = new Person();
+        Man.prototype.constructor = Man;
+
+        function Man() {
+
+        }
+
+        const p1 = new Women();
+        const p2 = new Man();
+
+        console.log(p1.baby());
+        console.log(p2.baby());
+    </script>
+</body>
+
+</html>

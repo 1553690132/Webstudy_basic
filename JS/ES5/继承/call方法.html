@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn () {
+            console.log('213');
+            console.log(this);
+        }
+
+        var o = {
+            name: 'lwh'
+        };
+
+        // 1.call()调用函数
+        fn.call();
+        // 输出213 和 window对象
+
+        // 2.修改this指向
+        fn.call(o); 
+        // 输出213 和 o对象
+    </script>
+</body>
+</html>

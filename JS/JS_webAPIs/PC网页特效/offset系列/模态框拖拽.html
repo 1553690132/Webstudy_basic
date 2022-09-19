@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            background-color: rgb(237, 237, 237);
+        }
+
+        h1 {
+            width: 250px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        section {
+            display: none;
+        }
+
+        .login {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 320px;
+            background-color: #fff;
+            transform: translate(-50%, -50%);
+            box-shadow: 6px 6px 4px #fff;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 90%;
+            background-color: #fff;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid rgb(224, 224, 224);
+            cursor: pointer;
+        }
+
+        .login-title {
+            flex: 1;
+            text-align: center;
+            font-size: 20px;
+            padding-top: 10px;
+            cursor: move;
+        }
+
+        .login-content {
+            display: flex;
+            flex: 4;
+            flex-direction: column;
+        }
+
+        .uname,
+        .upwd {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .uname span,
+        .upwd span {
+            flex: 1;
+        }
+
+        .uname input,
+        .upwd input {
+            flex: 4;
+            height: 40px;
+            width: 300px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+
+
+        .submit {
+            margin-top: 20px;
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .submit button {
+            width: 200px;
+            height: 30px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>点击我进行登录</h1>
+
+    <div class="login">
+        <div class="close">关闭</div>
+        <div class="login-title">登录会员</div>
+        <div class="login-content">
+            <div class="uname">
+                <span>用户名:</span> <input type="text" placeholder="请输入用户名">
+            </div>
+            <div class="upwd">
+                <span>登录密码:</span> <input type="password" placeholder="请输入登录密码">
+            </div>
+            <div class="submit">
+                <button type="submit">登录会员</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let closes = document.querySelector('.close');
+        let login = document.querySelector('.login');
+        let title = document.querySelector('.login-title')
+        let h = document.querySelector('h1');
+        h.addEventListener('click', () => {
+            login.style.display = 'flex';
+        });
+        closes.addEventListener('click', () => {
+            login.style.display = 'none';
+        });
+        title.addEventListener('selectstart', (e) => {
+            e.preventDefault();
+        });
+        title.addEventListener('mousedown', (e) => {
+            let x = e.pageX - login.offsetLeft;
+            let y = e.pageY - login.offsetTop;
+            let changes = function (v) {
+                login.style.left = v.pageX - x + 'px';
+                login.style.top = v.pageY - y + 'px';
+            }
+            this.addEventListener('mousemove', changes);
+            this.addEventListener('mouseup', () => {
+                this.removeEventListener('mousemove', changes);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .clearfix:after,
+        .clearfix:before {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        /* .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        } */
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        /* 适配IE6 IE7 */
+        /* after伪元素消除浮动 */
+
+        .box {
+            background-color: aqua;
+            /* overflow: hidden; */
+            /* 给父元素增加overflow属性消除浮动 */
+        }
+
+        .d1 {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            float: left;
+        }
+
+        .d2 {
+            width: 200px;
+            height: 200px;
+            background-color: #d2de;
+            float: left;
+        }
+
+        .d3 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            float: left;
+        }
+
+        .c {
+            height: 300px;
+            background-color: bisque;
+        }
+
+        /* 
+        .clear {
+            clear: both;
+        } */
+        /* 额外标签法清楚浮动 */
+    </style>
+    <script>
+        alert('HELLO WORLD');
+    </script>
+</head>
+
+<body>
+    <div class="box clearfix">
+        <div class="d1"></div>
+        <div class="d2"></div>
+        <div class="d3"></div>
+        <!-- <div class="clear"></div> -->
+        <!-- 新增边界必须为块级元素! -->
+        <input type="text" pl name="" id="">
+    </div>
+    <div class="c"></div>
+</body>
+
+</html>

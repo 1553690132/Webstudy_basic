@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.search-index {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    min-width: 320px;
+    max-width: 540px;
+    height: 44px;
+    background-color: #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    z-index: 100;
+}
+
+.search {
+    position: relative;
+    flex: 1;
+    height: 26px;
+    border: 1px solid #ccc;
+    margin: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 24px;
+    padding-left: 25px;
+    color: #666;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.search::before {
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: url('../images/sprites.png') no-repeat -59px -279px;
+    background-size: 104px auto;
+}
+
+.user {
+    width: 44px;
+    height: 44px;
+    font-size: 12px;
+    text-align: center;
+    color: #2eaae0;
+}
+
+.user::before {
+    content: '';
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url('../images/sprites.png') no-repeat -59px -194px;
+    background-size: 104px auto;
+    margin: 4px auto -2px;
+}
+
+.goBack {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    background: url('../images/back.png') no-repeat;
+    background-size: 38px 38px;
+}
+
+.focus {
+    position: relative;
+    padding-top: 44px;
+    overflow: hidden;
+}
+
+.focus ul {
+    width: 500%;
+    overflow: hidden;
+    margin-left: -100%;
+    /* 让第一张图片出现 */
+}
+
+.focus ul li {
+    float: left;
+    width: 20%;
+}
+
+.focus ul li img {
+    width: 100%;
+}
+
+.focus ol {
+    position: absolute;
+    top: 100px;
+    right: 0;
+}
+
+.focus ol li {
+    float: left;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #000;
+    margin-right: 10px;
+    opacity: .5;
+    transition: all .3s;
+}
+
+.current {
+    background-color: #fff !important;
+    opacity: .9 !important;
+}
+
+.local-nav {
+    display: flex;
+    height: 64px;
+    margin: 3px 4px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.local-nav li {
+    flex: 1;
+}
+
+.local-nav a {
+    display: flex;
+    flex-direction: column;
+    /* 侧轴居中对齐 因为是单行 */
+    align-items: center;
+    font-size: 12px;
+}
+
+.local-nav li a span:nth-child(1) {
+    width: 32px;
+    height: 32px;
+    background: url('../images/localnav_bg.png') no-repeat 0 0;
+    background-size: 32px auto;
+    margin-top: 8px;
+}
+
+.local-nav li:nth-child(2) a span:nth-child(1) {
+    background-position: 0 -32px;
+}
+
+.local-nav li:nth-child(3) a span:nth-child(1) {
+    background-position: 0 -64px;
+}
+
+.local-nav li:nth-child(4) a span:nth-child(1) {
+    background-position: 0 -96px;
+}
+
+.local-nav li:nth-child(5) a span:nth-child(1) {
+    background-position: 0 -128px;
+}
+
+nav {
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 0 4px 3px;
+}
+
+.div-common {
+    display: flex;
+    height: 88px;
+}
+
+.div-common:nth-child(2) {
+    margin: 3px 0;
+}
+
+.nav-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-items:nth-child(-n+2) {
+    border-right: 1px solid #fff;
+}
+
+.nav-items a {
+    flex: 1;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 1px 1px rgba(0, 0, 0, .2);
+}
+
+.nav-items a:first-child {
+    border-bottom: 1px solid #fff;
+}
+
+.nav-items:first-child a {
+    background: url('../images/hotel.png') no-repeat bottom center;
+    background-size: 121px auto;
+}
+
+.div-common:first-child {
+    background: -webkit-linear-gradient(left, rgb(179, 179, 34), orange);
+}
+
+.div-common:nth-child(2) {
+    background: -webkit-linear-gradient(left, rgb(45, 45, 213),rgb(32, 162, 205));
+}
+
+.div-common:last-child {
+    background: -webkit-linear-gradient(left, rgb(0, 148, 0), rgb(18, 197, 18))
+}
+
+.subnav-entry {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 0 4px;
+    padding: 5px 0;
+}
+
+.subnav-entry li {
+    flex: 20%;
+}
+
+.subnav-entry li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+.subnav-entry li a span:first-child {
+    width: 28px;
+    height: 28px;
+    margin-top: 4px;
+    background: url('../images/subnav-bg.png') no-repeat;
+    background-size: 28px auto;
+}
+
+.sales-box {
+    border-top: 1px solid #bbb;
+    background-color: #fff;
+    margin: 4px 3px;
+}
+
+.sales-hd {
+    position: relative;
+    height: 44px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sales-hd h2 {
+    position: relative;
+    text-indent: -999px;
+    overflow: hidden;
+}
+
+.sales-hd h2::after {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    content: '';
+    width: 79px;
+    height: 15px;
+    background: url('../images/hot.png') no-repeat 0 -20px;
+    background-size: 79px auto;
+}
+
+.sales-hd a {
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    background: -webkit-linear-gradient(left, #ff506c, #ff6bc6);
+    border-radius: 15px;
+    padding: 3px 20px 3px 10px;
+    color: #fff;
+}
+
+.sales-hd a::after {
+    content: '';
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    transform: rotate(45deg);
+}
+
+.row {
+    display: flex;
+}
+
+.row a {
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.row a:first-child {
+    border-right: 1px solid #eee;
+}
+
+.row a img {
+    width: 100%;
+}

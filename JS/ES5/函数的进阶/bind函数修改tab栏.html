@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        main {
+            display: flex;
+            height: 500px;
+            width: 100%;
+            margin: 100px auto;
+            flex-direction: column;
+        }
+
+        h4 {
+            flex: 1;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .tabsbox {
+            flex: 9;
+            display: flex;
+            width: 90%;
+            height: 90%;
+            margin: 0 auto;
+            border: 1px solid pink;
+            flex-direction: column;
+        }
+
+        .firstnav {
+            flex: 1;
+            display: flex;
+            width: 100%;
+            border-bottom: 1px solid lightpink;
+        }
+
+        .firstnav ul {
+            flex: 9;
+            display: flex;
+            text-align: center;
+        }
+
+        .firstnav ul li {
+            position: relative;
+            flex: 1;
+            display: flex;
+            height: 100%;
+            border-right: 1px solid pink;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .firstnav ul li span {
+            color: rgb(52, 51, 51);
+        }
+
+        .firstnav ul li i {
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: #000;
+            font-size: 5px;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+            border: 1px solid pink;
+            border-collapse: collapse;
+        }
+
+        .tabadd {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tabadd span {
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            border: 1px solid pink;
+            cursor: pointer;
+        }
+
+        .tabscon {
+            flex: 9;
+            width: 100%;
+        }
+
+        .liactive {
+            border-bottom: 1px solid #fff !important;
+        }
+
+        section {
+            display: none;
+        }
+
+        .conactive {
+            display: block;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h4>JS面向对象 动态添加标签页</h4>
+        <div class="tabsbox" id="tab">
+            <!-- 标签 -->
+            <nav class="firstnav">
+                <ul>
+                    <li class="liactive">
+                        <span>测试1</span>
+                        <i>X</i>
+                    </li>
+                    <li>
+                        <span>测试2</span>
+                        <i>X</i>
+                    </li>
+                    <li>
+                        <span>测试3</span>
+                        <i>X</i>
+                    </li>
+                </ul>
+
+                <div class="tabadd">
+                    <span>+</span>
+                </div>
+            </nav>
+
+            <!-- 内容 -->
+            <div class="tabscon">
+                <section class="conactive">测试1</section>
+                <section>测试2</section>
+                <section>测试3</section>
+            </div>
+        </div>
+    </main>
+    <script>
+        class Tab {
+            constructor(id) {
+                this.main = document.querySelector(id);
+                this.lis = this.main.querySelectorAll('li');
+                this.ul = this.main.querySelector('.firstnav ul:first-child');
+                this.sections = this.main.querySelectorAll('section');
+                this.add = this.main.querySelector('.tabadd');
+                this.fsection = this.main.querySelector('.tabscon');
+                this.init();
+            }
+
+            init() {
+                this.updateNode();
+                // 初始化就获取li和section
+                for (let i = 0; i < this.lis.length; i++) {
+                    this.lis[i].index = i;
+                    // 每一个li设置index属性
+                    this.lis[i].onclick = this.toggleTab.bind(this.lis[i], this);
+                    this.remove[i].onclick = this.removeTab.bind(this.remove[i], this);
+                    this.spans[i].ondblclick = this.editTab;
+                    this.sections[i].ondblclick = this.editTab;
+                }
+                this.add.onclick = this.addTab.bind(this.add, this);
+            }// 初始化绑定元素事件
+
+            updateNode() {
+                this.lis = this.main.querySelectorAll('li');
+                this.sections = this.main.querySelectorAll('section');
+                this.remove = this.main.querySelectorAll('i');
+                this.spans = this.main.querySelectorAll('.firstnav ul li span');
+            }
+            // 重新获取li和section使其动态变化
+
+            toggleTab(that) {
+                that.clearClass();
+                // 实例对应为主对象
+                this.className = 'liactive';
+                that.sections[this.index].className = 'conactive';
+                // 函数内的this指向调用者即li 故使用that去指向
+            }
+
+            addTab(that) {
+                that.clearClass();
+                let random = Math.random();
+                let li = '<li class="liactive"><span>新选项卡</span><i>X</i></li>';
+                that.ul.insertAdjacentHTML('beforeend', li);
+                let section = `<section class="conactive">初始化内容${random}</section>`;
+                that.fsection.insertAdjacentHTML('beforeend', section);
+                that.init();
+                // 创建完元素再进行初始化绑定事件
+            }
+
+            removeTab(that, e) {
+                e.stopPropagation();
+                // 阻止冒泡 防止关闭选项卡时触发切换事件
+                let index = this.parentNode.index;
+                // that.ul.removeChild(that.ul.children[index]);
+                that.lis[index].remove();
+                that.sections[index].remove();
+                that.init();
+                if(document.querySelector('.liactive')) {
+                    return;
+                    // 优化用户交互
+                }
+                index = index === 0 ? ++index : --index;
+                that.lis[index].click();
+                that.sections[index].click();  
+            }
+
+            editTab() {
+                // 双击禁止选定文字
+                window.getSelection ? window.getSelection().removeAllRanges() : document.selecton.empty();
+                let value = this.innerHTML;
+                this.innerHTML = `<input type="text" value=${value} />`
+                let input = this.children[0];
+                input.select();
+                // 文本框文字处于选定状态！
+                input.onblur = function() {
+                    this.parentNode.innerHTML = this.value;
+                }
+                input.onkeyup = function(e) {
+                    if(e.key === 'Enter') {
+                        this.blur();
+                    }  
+                }
+            }
+
+            clearClass() {
+                for (let i = 0; i < this.lis.length; i++) {
+                    this.lis[i].className = '';
+                    this.sections[i].className = '';
+                }
+            }
+        }
+
+        let tab = new Tab('#tab');
+    </script>
+</body>
+
+</html>

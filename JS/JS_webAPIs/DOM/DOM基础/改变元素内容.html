@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击获取时间</button>
+    <div>当前时间</div>
+    <script>
+        var date = new Date(), year = date.getFullYear(), month = date.getMonth() + 1, dates = date.getDate(), hours = date.getHours(), minutes = date.getMinutes(), seconds = date.getSeconds();
+        date = year + '年' + month + '月' + dates + '日' + hours + '时' + minutes + '分' + seconds + '秒';
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.onclick = function() {
+            div.innerText = date;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: lightpink;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <p class="plz">haha</p>
+    <script>
+        var div = document.querySelector('div');
+        div.onclick = function() {
+            this.style.backgroundColor = 'green';
+            this.style.width = '300px';
+            this.style.height = '300px';
+        }
+        var p = document.querySelector('.plz');
+        p.onclick = function() {
+            this.style.fontSize = '200px';
+        }
+    </script>
+</body>
+</html>

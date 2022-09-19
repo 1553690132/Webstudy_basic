@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/JS/jQuery/jquery.min.js"></script>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        $(function() {
+            $('div').each(function(index, domEle) {
+                console.log(index);
+                console.log(domEle);
+            })
+
+            $.each($('div'), function(i, e) {
+                console.log(i);
+            })
+        })
+    </script>
+</body>
+</html>

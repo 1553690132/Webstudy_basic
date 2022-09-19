@@ -1,0 +1,296 @@
+.on {
+    background-color: #078ceb;
+    color: white;
+}
+
+.off {
+    background-color: white;
+    color: #078ceb;
+}
+
+.news {
+    margin-top: 20px;
+    margin-right: 25px;
+    padding: 5px;
+    height: 360px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 20px;
+    transition: 1s;
+}
+
+.news:hover {
+    box-shadow: 10px 0px 20px 0px;
+}
+
+.news-head-bar li {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    padding-right: 6.5%;
+    padding-left: 6.5%;
+    letter-spacing: 1px;
+    border-radius: 20px;
+}
+
+.news-head-bar {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+#s-announcement {
+    width: 25%;
+    float: left;
+}
+
+#s-announcement:hover {
+    background-color: #078ceb;
+    color: white;
+}
+
+#s-activePreview {
+    width: 25%;
+    float: left;
+}
+
+#s-activePreview:hover {
+    background-color: #078ceb;
+    color: white;
+}
+
+#s-server {
+    width: 25%;
+    float: left;
+}
+
+#s-server:hover {
+    background-color: #078ceb;
+    color: white;
+}
+
+#s-history {
+    width: 25%;
+}
+
+#s-history:hover {
+    background-color: #078ceb;
+    color: white;
+}
+
+.show {
+    display: block;
+}
+
+.show ul li {
+    border-bottom: 1px dotted #cfcfcf;
+}
+
+.hide {
+    display: none;
+}
+
+div ul li {
+    list-style: none;
+    color: white;
+    padding: 0;
+}
+
+div ul li a {
+    text-decoration: none;
+}
+
+#news-firstpage ul li {
+    line-height: 50px;
+}
+
+#news-firstpage ul li a {
+    color: #000;
+}
+
+#news-firstpage ul li a:hover {
+    color: #e9c06c
+}
+
+#news-secondpage ul li a {
+    color: #000;
+}
+
+#news-secondpage ul li a:hover {
+    color: #e9c06c
+}
+
+#news-secondpage ul li {
+    line-height: 50px;
+}
+
+#news-thirdpage ul li a {
+    color: #000;
+}
+
+#news-thirdpage ul li a:hover {
+    color: #e9c06c
+}
+
+#news-thirdpage ul li {
+    line-height: 50px;
+}
+
+#news-fourthpage ul li a {
+    color: #000;
+}
+
+#news-fourthpage ul li a:hover {
+    color: #e9c06c
+}
+
+#news-fourthpage ul li {
+    line-height: 50px;
+}
+
+.first-item a {
+    font-size: 22px;
+    color: #1da6ba;
+}
+
+/* 系友风采 */
+.presence {
+    margin-top: 20px;
+    margin-left: 25px;
+    border-top: 4px rgb(7, 140, 235) solid;
+    float: left;
+    transition: 1s;
+    border-radius: 20px;
+}
+
+.presence:hover {
+    box-shadow: 10px 0px 20px 0px;
+}
+
+#presence-title {
+    display: inline-block;
+    padding-top: 10px;
+    padding-left: 5px;
+    margin: 10px 0 0px 5px;
+    color: rgb(7, 140, 235);
+    font-size: 18.72px;
+    font-weight: 600;
+}
+
+span+#more-peopele {
+    margin-top: 20px;
+    float: right;
+    margin-right: 5px;
+}
+
+#p-photo {
+    width: auto;
+    height: auto;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.presence-left {
+    float: left;
+    width: 30%;
+    height: 270px;
+}
+
+.p-info {
+    padding-left: 30px;
+    width: 70%;
+    float: left;
+}
+
+.p-name {
+    margin: 0 30px 0 30px;
+    padding: 40px 40px 5px 40px;
+    float: left;
+    border-bottom: 2px rgb(7, 140, 235) solid;
+}
+
+.p-name p {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.presence-right {
+    background-color: #ddd;
+}
+
+.presence-right .p-message {
+    float: left;
+    margin: 0 30px 0 30px;
+}
+
+.news-bar {
+    width: 90%;
+    margin-top: 28px;
+    margin-left: 5%;
+    height: 400px;
+    border-top: 4px rgb(7, 140, 235) solid;
+    float: left;
+    border-left: 1px solid rgba(0, 0, 0, .2);
+    border-right: 1px solid rgba(0, 0, 0, .2);
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 20px;
+    transition: 1s;
+}
+
+.news-bar:hover {
+    box-shadow: 10px 0px 20px 0px;
+}
+
+.news-bar-title {
+    display: inline-block;
+    margin: 10px 0 0 5px;
+    color: rgb(7, 140, 235);
+    font-size: 18.72px;
+    font-weight: 600;
+}
+
+#news-bar-left {
+    width: 50%;
+    float: left;
+    border-right: 2px #e1e1e1 dotted;
+    margin-left: 10px;
+}
+
+#news-bar-left li {
+    color: #000;
+}
+
+#news-bar-right {
+    float: left;
+}
+
+#news-bar-right li {
+    color: #000;
+}
+
+@media(max-width:1202px) {
+    .news-head-bar li {
+        display: inline-block;
+        cursor: pointer;
+        font-size: 12px;
+        padding-right: 6.5%;
+        padding-left: 6.5%;
+        letter-spacing: 1px;
+        border-radius: 20px;
+    }
+}
+
+@media(max-width:634px) {
+    .news{
+        height: 400px;
+    }
+
+    .news-head-bar li {
+        display: inline-block;
+        cursor: pointer;
+        font-size: 20px;
+        padding-right: 6.5%;
+        padding-left: 6.5%;
+        letter-spacing: 1px;
+        border-radius: 20px;
+    }
+}

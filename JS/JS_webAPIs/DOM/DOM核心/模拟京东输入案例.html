@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            display: block;
+            margin: 100px auto;
+            width: 400px;
+            height: 50px;
+            outline: none;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <script>
+        let input = document.querySelector('input');
+        document.addEventListener('keydown', function(e) {
+            if(e.keyCode === 83) {
+                input.focus();
+            }
+        });
+        // focus方法用于获得焦点
+    </script>
+</body>
+</html>

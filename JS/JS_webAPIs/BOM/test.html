@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 721px;
+            height: 455px;
+            margin: 100px auto;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="img/focus1.jpg" alt="">
+    </div>
+    <script>
+        let datas = [{ src: 'img/focus1.jpg' }, { src: 'img/focus2.jpg' }, { src: 'img/focus3.jpg' }, { src: 'img/focus4.jpg' }];
+        let img = document.querySelector('img'), flag = 1;
+        var timer = setInterval(() => {
+            flag = flag >= datas.length ? 1 : flag + 1;
+            img.src = `img/focus${flag}.jpg`;
+        }, 2000);
+    </script>
+</body>
+
+</html>
