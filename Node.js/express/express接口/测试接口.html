@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/JS/jQuery/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="getBtn">GET</button>
+    <button id="postBtn">POST</button>
+    <script>
+        $(() => {
+            $('#getBtn').on('click', () => {
+                $.ajax({
+                    method: 'GET',
+                    url: 'http://127.0.0.1:8080/api/get',
+                    data: { name: 'lwh' },
+                    success: (res) => alert(JSON.stringify(res.data))
+                })
+            })
+
+            $('#postBtn').on('click', () => {
+                $.ajax({
+                    method: 'POST',
+                    url: 'http://127.0.0.1:8080/api/post',
+                    data: { name: 'lwh', age: '20' },
+                    success: (res) => alert(JSON.stringify(res.data))
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
