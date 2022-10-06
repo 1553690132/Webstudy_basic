@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+    <script src="./promise.js"></script>
+</head>
+
+<body>
+    <script>
+        // let p = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve('ok')
+        //     }, 1000);
+        // })
+
+        // const res = p.then(value => {
+        //     return new Promise((resolve, reject) => {
+        //         resolve('LLL')
+        //     })
+        // }, reason => {
+        //     console.warn(reason)
+        // })
+        // console.log(res)
+
+        // let _p = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         reject('error')
+        //     })
+        // })
+
+        // _p.catch(reason => console.log(reason))
+
+        // let p_ = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         reject('Err')
+        //     }, 1000);
+        // })
+
+        // p_.then(reason => {
+        //     console.log(111);
+        // }).then(reason => {
+        //     console.log(222);
+        // }).then(reason => {
+        //     console.log(333);
+        // }).catch(reason => {
+        //     console.warn(reason)
+        // })
+
+        // let ress1 = Promise.all([p, _p, p_])
+        // console.log(ress1)
+        // let ress2 = Promise.race([p, _p, p_])
+        // console.log(ress2)
+
+        let p = new Promise((resolve, reject) => {
+            resolve('OK')
+            console.log(111)
+        })
+
+        p.then(value=> {
+            console.log(222)
+        })
+
+        console.log(333);
+    </script>
+</body>
+
+</html>

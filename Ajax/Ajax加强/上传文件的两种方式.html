@@ -6,15 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #file1 {}
+    </style>
     <script src="../jquery.min.js"></script>
 </head>
 
 <body>
-    <input type="file" id="">
+    <input type="file" id="file1">
+    <button type="submit" id="file1Up">Submit</button>
+    <img src="" alt="" id="img1">
+    <input type="file" id="file2">
+    <button type="submit" id="file2Up">Submit</button>
+    <img src="" alt="" id="img2">
     <script>
-        $(() => [
+        // 传统方式提交
+        document.querySelector('#file1Up').onclick = function () {
+            const xhr = new XMLHttpRequest()
+            const fd = new FormData()
 
-        ])
+            const files = document.querySelector('#file1').files
+            if (files.length <= 0) return alert('未选择图片')
+
+            fd.append('avatar', files[0])
+
+            xhr.open('POST', 'http://www.liulongbin.top:3006/api/upload/avatar')
+            xhr.send(fd)
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText)
+                    if (data.status === 200) {
+                        document.querySelector('#img1').src = 'http://www.liulongbin.top:3006' + data.url
+                    } else {
+                        alert('上传失败!' + data.message)
+                    }
+                }
+            }
+        }
+
+
+        // jQuery方式提交
+        $(() => {
+            $('#file2Up').on('click', () => {
+                const fd = new FormData()
+                const files = $('#file2')[0].files
+                if (files.length <= 0) return alert('未选择文件')
+
+                fd.append('avatar', files[0])
+                $.ajax({
+                    method: 'POST',
+                    url: 'http://www.liulongbin.top:3006/api/upload/avatar',
+                    data: fd,
+                    contentType: false,
+                    processData: false,
+                    success: res => {
+                        $('#img2').attr('src', 'http://www.liulongbin.top:3006' + res.url)
+                    }
+                })
+            })
+        })
+
     </script>
 </body>
 

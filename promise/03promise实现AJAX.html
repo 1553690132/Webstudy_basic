@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" style="width: 500px; height:50px;">
+    <button id="btn">点击获取ajax对象</button>
+    <script>
+        // 原生方法获取
+        const btn = document.querySelector('#btn')
+        btn.addEventListener('click', () => {
+            const p = new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest()
+                xhr.open('GET', 'http://127.0.0.1:7080/get')
+                xhr.send()
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            resolve(xhr.response)
+                        } else {
+                            reject(xhr.status)
+                        }
+                    }
+                }
+            }).then(value => {
+                document.querySelector('input').value = value
+            }, reason => {
+                console.log(reason)
+            })
+        })
+    </script>
+</body>
+
+</html>

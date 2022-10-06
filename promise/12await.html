@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>await</title>
+</head>
+
+<body>
+    <script>
+        async function main() {
+            // 1.右侧为promise的情况
+            let p = new Promise((resolve, reject) => {
+                resolve('ok')
+            })
+
+            let res = await p;
+            // 输出成功值
+
+            // 2.右侧为其他类型的数据
+            let res2 = await 20;
+            console.log(res2)
+            // 直接输出数据
+
+            // 如果promise是失败的情况
+            try {
+                let res3 = await new Promise((resolve, reject) => {
+                    reject('err')
+                })
+            } catch (error) {
+                console.log(error);
+            }
+
+        }
+        main()
+    </script>
+</body>
+
+</html>
